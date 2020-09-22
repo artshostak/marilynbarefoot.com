@@ -1,0 +1,13 @@
+section.hero {
+  width: 100vw;
+  height: 100vh;
+  background: map-get($theme-colors, 'azul');
+  color: white;
+  padding: 38px;
+}
+
+#lottie {
+  width: 450px;
+  height: 587px;
+  object-fit: contain;
+}

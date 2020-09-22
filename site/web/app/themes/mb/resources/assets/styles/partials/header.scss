@@ -2,6 +2,37 @@
  * Header
  */
 
-.brand {
-  font-weight: bold;
+header.top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateY(0);
+  opacity: 1;
+  z-index: 99;
+  color: white;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .menu-main-container {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        display: inline-block;
+
+        & + li {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
 }

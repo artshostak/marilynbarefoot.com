@@ -1,4 +1,4 @@
-<header class="banner">
+<header class="top fixed">
   <div class="container">
     <a class="brand" href="{{ home_url('/') }}">
       {{ $siteName }}

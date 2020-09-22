@@ -5278,6 +5278,11 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
+lottie-web@^5.7.3:
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.7.3.tgz#dbe542270665be5dd5b32deae19e27de6e77728c"
+  integrity sha512-ftN4AdiNmtoVpCfN1doiUIUbhOrDSMikH1Yl64/xO5lzQ31AO0+G82bqrCNHIW5Ec2zE/g7y4iz7zBR1YJwDaA==
+
 lower-case@^1.1.1:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/lower-case/-/lower-case-1.1.4.tgz#9a2cabd1b9e8e0ae993a4bf7d5875c39c42e8eac"
@@ -5976,6 +5981,11 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
   integrity sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
   dependencies:
     wrappy "1"
+
+onscreen@^1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/onscreen/-/onscreen-1.3.4.tgz#7bd41b0bc3b3bd18da116437a02558eeb4f15cf0"
+  integrity sha512-rtyO4Z5WagTtA31ywUUQrUN/lQ2OR/FqzDqw3S/2aWE9chCiuV0bfYychu+UqYRdI0sah5TJMMCtIMxPagONQg==
 
 openurl@1.1.1:
   version "1.1.1"

@@ -1,12 +1,16 @@
 <main data-barba="wrapper">
+  <div class="loading-container">
+    <div class="loading-screen"></div>
+  </div>
+
   @include('partials.header')
 
-  <div class="container" role="document" data-barba="container"
+  <div class="barba-container" role="document" data-barba="container"
   data-barba-namespace="{{ $loaderNamespace }}">
     <div id="body-classes" @php body_class() @endphp>
       @yield('content')
+      @include('partials.footer')
     </div>
   </div>
 
-  @include('partials.footer')
 </main>
