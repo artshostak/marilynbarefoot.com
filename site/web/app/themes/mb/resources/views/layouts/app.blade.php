@@ -1,15 +1,12 @@
-@include('partials.header')
+<main data-barba="wrapper">
+  @include('partials.header')
 
-<div class="container">
-  <main class="main">
-    @yield('content')
-  </main>
+  <div class="container" role="document" data-barba="container"
+  data-barba-namespace="{{ $loaderNamespace }}">
+    <div id="body-classes" @php body_class() @endphp>
+      @yield('content')
+    </div>
+  </div>
 
-  @hasSection('sidebar')
-    <aside class="sidebar">
-      @yield('sidebar')
-    </aside>
-  @endif
-</div>
-
-@include('partials.footer')
+  @include('partials.footer')
+</main>

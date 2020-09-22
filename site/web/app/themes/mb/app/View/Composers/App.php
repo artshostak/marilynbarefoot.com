@@ -24,6 +24,7 @@ class App extends Composer
     {
         return [
             'siteName' => $this->siteName(),
+            'loaderNamespace' => $this->loaderNamespace(),
         ];
     }
 
@@ -35,5 +36,16 @@ class App extends Composer
     public function siteName()
     {
         return get_bloginfo('name', 'display');
+    }
+
+    /**
+     * Returns current JS loader namespace
+     * @see https://barba.js.org/docs/userguide/markup/
+     *
+     * @return string
+    */
+    public function loaderNamespace()
+    {
+        return get_the_title();
     }
 }
