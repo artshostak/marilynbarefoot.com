@@ -53,6 +53,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-family: $font-family-base;
+  font-size: 20px;
 }
 
 a {
@@ -68,4 +69,8 @@ h1,
 h2,
 h3 {
   color: inherit;
+}
+
+.mt-xl {
+  margin-top: 132px;
 }

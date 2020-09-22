@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <section class="index container">
+  <section class="index container mt-xl">
     @include('partials.page-header')
 
     @if (! have_posts())

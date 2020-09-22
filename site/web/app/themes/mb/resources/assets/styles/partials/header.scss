@@ -10,7 +10,11 @@ header.top {
   transform: translateY(0);
   opacity: 1;
   z-index: 99;
-  color: white;
+  border-bottom: 1px solid;
+
+  &.white {
+    color: white;
+  }
 
   .container {
     display: flex;

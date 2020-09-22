@@ -69,7 +69,9 @@ barba.init({
         // Bodymovin
       },
       afterEnter() {
-        console.log('fire animation');
+        os.on('enter', 'section.hero', (element) => {
+          $('header.top').addClass('white');
+        });
         playAnimation();
       },
     },
@@ -80,6 +82,9 @@ barba.init({
       sync: true,
       beforeLeave() {
         $('.barba-container').fadeOut();
+        if($('header.top').hasClass('white')) {
+          $('header.top').removeClass('white');
+        }
         pageTransitionIn();
       },
       leave(data) {
