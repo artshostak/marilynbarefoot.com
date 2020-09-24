@@ -65,11 +65,11 @@ barba.init({
     {
       namespace: 'Home',
       beforeEnter() {
-
+        // add transparent effect to header
+        $header.addClass('transparent');
       },
       afterEnter() {
-        // Transparent header effect
-        $header.addClass('transparent');
+        // Transparent header effect on scroll
         $(window).on('scroll', function() {
           let scroll = $(window).scrollTop();
           if(scroll >= (window.innerHeight - 41)) {
