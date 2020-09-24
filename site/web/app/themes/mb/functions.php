@@ -40,6 +40,11 @@ collect(['helpers', 'setup', 'filters', 'admin'])
         }
     });
 
+/* ACF */
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page();
+}
+
 /*
 |--------------------------------------------------------------------------
 | Enable Sage Theme Support

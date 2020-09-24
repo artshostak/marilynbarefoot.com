@@ -5,7 +5,7 @@
 
   @include('partials.header')
 
-  <div class="barba-container" role="document" data-barba="container"
+  <div class="barba-container <?php if(!is_front_page()): ?> offset-header<?php endif; ?>" role="document" data-barba="container"
   data-barba-namespace="{{ $loaderNamespace }}">
     <div id="body-classes" @php body_class() @endphp>
       @yield('content')

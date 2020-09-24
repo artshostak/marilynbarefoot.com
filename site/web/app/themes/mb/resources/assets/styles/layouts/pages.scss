@@ -1,0 +1,13 @@
+#page-about {
+  header.page-header {
+    color: $lightblue;
+  }
+
+  .grid {
+    .right {
+      img {
+        @extend .circle;
+      }
+    }
+  }
+}

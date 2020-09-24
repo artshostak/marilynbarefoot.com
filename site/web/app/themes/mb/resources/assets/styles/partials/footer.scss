@@ -1,0 +1,58 @@
+section.prefooter {
+  .grid {
+    padding-top: 75px;
+    padding-bottom: 96px;
+    align-items: center;
+
+    .left {
+      grid-column: span 7;
+    }
+
+    .right {
+      grid-column: span 4;
+
+      img {
+        max-width: 335px;
+        max-height: 476px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+footer.bottom {
+  padding-top: 36px;
+  padding-bottom: 26px;
+
+  &:not(.blue) {
+    border-top: 1px solid;
+  }
+
+  &.blue {
+    background: $azul;
+    color: $white;
+
+    .copyright {
+      color: #e6ebf2;
+    }
+  }
+
+  section + section {
+    margin-top: 0;
+  }
+
+  h3 {
+    @extend p;
+
+    margin-bottom: 5px;
+  }
+
+  ul {
+    @extend .unstyled;
+
+    li + li {
+      margin-top: 5px;
+    }
+  }
+}

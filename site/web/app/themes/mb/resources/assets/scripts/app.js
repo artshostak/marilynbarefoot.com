@@ -14,20 +14,19 @@ function playAnimation() {
     container: lottie,
     name: $(lottie).data('name'),
     path: $(lottie).data('animation-path'),
-    // renderer: 'svg',
     autoplay: true,
     loop: false,
   });
 }
 
 // OnScreen
-let os = new OnScreen({
-  tolerance: 400,
-});
+// let os = new OnScreen({
+//   tolerance: 400,
+// });
 
 // Loader
-const loadingScreen = document.querySelector('.loading-screen'),
-  mainNavigation = document.querySelector('header.top');
+const loadingScreen = document.querySelector('.loading-screen');
+const $header = $('header.top');
 
 // Function to add and remove the page transition screen
 function pageTransitionIn() {
@@ -56,7 +55,7 @@ function pageTransitionOut(container) {
 function contentAnimation(container) {
   return gsap
     .timeline()
-    .from(mainNavigation, { duration: .5, translateY: -100, opacity: 0})
+    .from($header, { duration: .5, translateY: -100, opacity: 0})
 }
 
 // Barba 
@@ -66,13 +65,26 @@ barba.init({
     {
       namespace: 'Home',
       beforeEnter() {
-        // Bodymovin
+
       },
       afterEnter() {
-        os.on('enter', 'section.hero', (element) => {
-          $('header.top').addClass('white');
-        });
+        // document.querySelector('header.top').classList.add('white');
+
+        // $(window).on('scroll', function() {
+        //   let scroll = $(window).scrollTop();
+        //   if(scroll >= (window.innerHeight - 41)) {
+        //     document.querySelector('header.top').classList.remove('white');
+        //   } else {
+        //     if(!$header.hasClass('white')) {
+        //       document.querySelector('header.top').classList.add('white');
+        //     }
+        //   }
+        // });
+
         playAnimation();
+      },
+      leave() {
+        //
       },
     },
   ],
@@ -81,26 +93,21 @@ barba.init({
       name: 'basic',
       sync: true,
       beforeLeave() {
-        $('.barba-container').fadeOut();
-        if($('header.top').hasClass('white')) {
-          $('header.top').removeClass('white');
-        }
         pageTransitionIn();
       },
       leave(data) {
         // data.current.container.remove();
       },
+      beforeEnter() {
+
+      },
       enter(data) {
         pageTransitionOut(data.next.container);
         $(window).scrollTop(0);
         $('.barba-container').fadeIn();
-        // return gsap.from(data.next.container, {
-        //   opacity: 0,
-        //   onComplete: () => {
-        //     this.async();
-        //     $('body').attr('class', $('#body-classes').attr('class'));
-        //   },
-        // });
+      },
+      after() {
+        $('body').attr('class', $('#body-classes').attr('class'));
       },
       once(data) {
         contentAnimation(data.next.container);

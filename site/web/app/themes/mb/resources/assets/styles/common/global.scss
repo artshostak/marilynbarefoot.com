@@ -13,7 +13,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background: map-get($theme-colors, 'topaz');
+  background: $topaz;
   z-index: 90;
   transform: scaleY(0) skewX(0);
   transform-origin: top left;
@@ -30,8 +30,159 @@ body {
   pointer-events: none;
 }
 
-.container {
-  padding-left: 48px;
-  padding-right: 48px;
+/* Helpers */
+.unstyled {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.circle {
+  border-radius: 50%;
   overflow: hidden;
+}
+
+.border {
+  border: 1px solid;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.border-top {
+  border-top: 1px solid;
+}
+
+.border-bottom {
+  border-bottom: 1px solid;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.rel {
+  position: relative;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.small-text-center {
+  @include medium-down {
+    text-align: center;
+  }
+}
+
+.text-right {
+  @include medium-up {
+    text-align: right;
+  }
+
+  &.always {
+    text-align: right;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.dib {
+  display: inline-block;
+  margin-right: $gap;
+}
+
+span.screen-reader-text {
+  display: none;
+}
+
+/* Layout */
+.container {
+  max-width: 1600px;
+  padding-left: $spacer;
+  padding-right: $spacer;
+  margin-right: auto;
+  margin-left: auto;
+
+  &.endless {
+    max-width: none;
+  }
+
+  &.full {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @include large-up {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @include xl-up {
+    padding-left: 15vw !important;
+    padding-right: 15vw !important;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  height: 100%;
+
+  &.middle {
+    justify-content: center;
+  }
+
+  &.centered {
+    align-items: center;
+  }
+
+  &.spaced {
+    flex-flow: row;
+    justify-content: space-between;
+  }
+}
+
+.pin {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+
+  &.fullpage {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &.full-height {
+    height: 100vh;
+  }
+
+  & + section {
+    margin-top: 120px;
+  }
+}
+
+/* Video */
+.video-container {
+  overflow: hidden;
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: black;
+  }
 }

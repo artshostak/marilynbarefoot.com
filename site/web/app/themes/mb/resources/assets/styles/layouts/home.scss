@@ -1,13 +1,32 @@
 section.hero {
   width: 100vw;
   height: 100vh;
-  background: map-get($theme-colors, 'azul');
+  background: $azul;
   color: white;
-  padding: 38px;
+
+  #lottie {
+    width: 450px;
+    height: 587px;
+    object-fit: contain;
+  }
 }
 
-#lottie {
-  width: 450px;
-  height: 587px;
-  object-fit: contain;
+section.about {
+  .grid {
+    align-items: center;
+
+    .right {
+      padding: 30px;
+    }
+  }
+
+  img {
+    border-radius: 153px;
+  }
+}
+
+section.services {
+  img {
+    @extend .circle;
+  }
 }
