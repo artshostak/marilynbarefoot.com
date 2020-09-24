@@ -17,7 +17,7 @@ header.top {
   transition: all 250ms ease-in-out;
   max-height: $header;
 
-  &.white {
+  &.transparent {
     background: transparent;
     color: white;
   }

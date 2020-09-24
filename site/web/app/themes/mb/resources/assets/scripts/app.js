@@ -68,23 +68,19 @@ barba.init({
 
       },
       afterEnter() {
-        // document.querySelector('header.top').classList.add('white');
-
-        // $(window).on('scroll', function() {
-        //   let scroll = $(window).scrollTop();
-        //   if(scroll >= (window.innerHeight - 41)) {
-        //     document.querySelector('header.top').classList.remove('white');
-        //   } else {
-        //     if(!$header.hasClass('white')) {
-        //       document.querySelector('header.top').classList.add('white');
-        //     }
-        //   }
-        // });
-
+        // Transparent header effect
+        $header.addClass('transparent');
+        $(window).on('scroll', function() {
+          let scroll = $(window).scrollTop();
+          if(scroll >= (window.innerHeight - 41)) {
+            $header.removeClass('transparent');
+          }
+        });
         playAnimation();
       },
-      leave() {
-        //
+      afterLeave() {
+        // Remove transparent header effect for other pages
+        $header.removeClass('transparent');
       },
     },
   ],
