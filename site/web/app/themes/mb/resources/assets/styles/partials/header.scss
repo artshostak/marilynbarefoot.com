@@ -54,4 +54,8 @@ header.top {
 header.page-header {
   padding-top: 51px;
   padding-bottom: 60px;
+
+  & > * {
+    margin: 0;
+  }
 }

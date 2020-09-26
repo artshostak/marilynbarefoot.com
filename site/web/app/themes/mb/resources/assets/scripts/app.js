@@ -4,7 +4,8 @@
 import 'jquery';
 import barba from '@barba/core';
 import gsap from 'gsap';
-import OnScreen from 'onscreen';
+import _ from 'underscore';
+import 'most-visible';
 import Lottie from 'lottie-web';
 
 // Lottie
@@ -18,11 +19,6 @@ function playAnimation() {
     loop: false,
   });
 }
-
-// OnScreen
-// let os = new OnScreen({
-//   tolerance: 400,
-// });
 
 // Loader
 const loadingScreen = document.querySelector('.loading-screen');
@@ -81,6 +77,18 @@ barba.init({
       afterLeave() {
         // Remove transparent header effect for other pages
         $header.removeClass('transparent');
+      },
+    },
+    {
+      namespace: 'Services',
+      afterEnter() {
+        $(window).on('scroll' , _.debounce(() => {
+          $('.service-full.visible').removeClass('visible');
+          $('.service-full').mostVisible({
+            percentage: true,
+            offset: 160,
+          }).addClass('visible');
+        }, 50));
       },
     },
   ],

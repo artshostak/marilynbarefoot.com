@@ -1,3 +1,9 @@
+section.single-page {
+  section.entry-content {
+    max-width: 735px;
+  }
+}
+
 #page-about {
   header.page-header {
     color: $lightblue;
@@ -6,7 +12,46 @@
   .grid {
     .right {
       img {
+        max-width: 308px;
+        max-height: 308px;
+
         @extend .circle;
+      }
+    }
+  }
+}
+
+#page-services {
+  header.page-header {
+    color: $topaz;
+  }
+
+  & ~ section.services {
+    article.service-full {
+      &.visible {
+        background: $dark-blue-grey;
+        color: $white;
+      }
+
+      .grid {
+        padding-top: 53px;
+        padding-bottom: 67px;
+
+        .left {
+          grid-column: 1/4;
+        }
+  
+        .right {
+          grid-column: 5/10;
+        }
+      }
+
+      & + article {
+        margin-top: 60px;
+
+        .grid {
+          border-top: 1px solid;
+        }
       }
     }
   }
