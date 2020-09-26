@@ -82,9 +82,18 @@ barba.init({
     {
       namespace: 'Services',
       afterEnter() {
+        let $service = $('.service-full');
+        
+        $service.on('click', function() {
+          $service.toggleClass('active');
+        });
+
         $(window).on('scroll' , _.debounce(() => {
-          $('.service-full.visible').removeClass('visible');
-          $('.service-full').mostVisible({
+          if($service.hasClass('visible')) {
+            $service.removeClass('visible');
+          }
+
+          $service.mostVisible({
             percentage: true,
             offset: 160,
           }).addClass('visible');

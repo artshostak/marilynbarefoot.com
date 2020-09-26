@@ -28,14 +28,61 @@ section.single-page {
 
   & ~ section.services {
     article.service-full {
+      position: relative;
+
       &.visible {
         background: $dark-blue-grey;
         color: $white;
+
+        .grid::after {
+          filter: invert(1);
+        }
+      }
+
+      @keyframes bounce {
+        0% {
+          transform: translateY(0);
+        }
+      
+        25% {
+          transform: translateY(-25%);
+        }
+      
+        50% {
+          transform: translateY(0);
+        }
+      
+        75% {
+          transform: translateY(-25%);
+        }
+      
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      &:hover {
+        .grid::after {
+          animation: bounce 1s ease-in-out infinite alternate-reverse;
+        }
       }
 
       .grid {
         padding-top: 53px;
         padding-bottom: 67px;
+        position: relative;
+
+        &::after {
+          content: "";
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cg fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg stroke='%23000'%3E%3Cg%3E%3Cpath d='M24 6L24 24 6 24' transform='translate(-1128 -754) translate(1128 754) rotate(45 15 15)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          bottom: 20px;
+          right: 0;
+        }
 
         .left {
           grid-column: 1/4;
@@ -47,7 +94,11 @@ section.single-page {
       }
 
       & + article {
-        margin-top: 60px;
+        &:last-of-type {
+          .grid {
+            border-bottom: 1px solid;
+          }
+        }
 
         .grid {
           border-top: 1px solid;
