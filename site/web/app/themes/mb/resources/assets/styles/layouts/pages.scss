@@ -6,6 +6,12 @@ section.single-page {
 }
 
 /* About */
+body.about {
+  .loading-screen {
+    background: $lightblue;
+  }
+}
+
 #page-about {
   header.page-header {
     color: $lightblue;
@@ -24,6 +30,12 @@ section.single-page {
 }
 
 /* Services */
+body.services {
+  .loading-screen {
+    background: $topaz;
+  }
+}
+
 #page-services {
   header.page-header {
     color: $topaz;
@@ -151,6 +163,12 @@ section.single-page {
 }
 
 /* Clients */
+body.clients {
+  .loading-screen {
+    background: $blueberry;
+  }
+}
+
 #page-clients {
   header.page-header {
     color: $blueberry;

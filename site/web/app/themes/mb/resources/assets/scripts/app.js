@@ -22,16 +22,6 @@ function playAnimation() {
   });
 }
 
-// Delay
-function delay(n) {
-  n = n || 2000
-  // Keep official documentation wording, done -> resolve
-  // and make it more concise
-  return new Promise(resolve => {
-    setTimeout(resolve, n)
-  })
-}
-
 // Loader
 const loadingScreen = document.querySelector('.loading-screen');
 const $header = $('header.top');
@@ -75,6 +65,7 @@ function contentAnimation(container) {
 // Barba 
 barba.init({
   debug: true,
+  prevent: ({ el }) => el.classList && el.classList.contains('prevent'),
   views: [
     {
       namespace: 'Home',
@@ -187,19 +178,22 @@ barba.init({
   transitions: [
     {
       // sync: true,
-      leave(data) {
-        pageTransitionIn()
+      beforeLeave(data) {
         data.current.container.remove()
+      },
+      leave() {
+        pageTransitionIn()
+      },
+      beforeEnter() {
+        $('body').attr('class', $('#body-classes').attr('class'));
       },
       enter(data) {
         $(window).scrollTop(0);
         pageTransitionOut(data.next.container)
-        $('body').attr('class', $('#body-classes').attr('class'));
       },
       once(data) {
         contentAnimation(data.next.container);
       },
     },
   ],
-  prevent: ({ el }) => el.classList && el.classList.contains('prevent'),
 });

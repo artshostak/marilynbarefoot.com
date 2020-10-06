@@ -14,7 +14,7 @@ header.top {
   z-index: 99;
   border-bottom: 1px solid;
   background: white;
-  transition: all 250ms ease-in-out;
+  transition: background 250ms ease-in-out;
   max-height: $header;
 
   &.transparent {

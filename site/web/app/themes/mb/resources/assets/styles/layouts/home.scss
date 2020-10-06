@@ -1,3 +1,9 @@
+body.home {
+  .loading-screen {
+    background: $azul;
+  }
+}
+
 section.hero {
   width: 100vw;
   height: 100vh;
@@ -5,9 +11,19 @@ section.hero {
   color: white;
 
   #lottie {
+    margin-top: 111px;
     width: 450px;
     height: 587px;
     object-fit: contain;
+  }
+
+  .wrapper {
+    margin: 55px 0 55px auto;
+  }
+
+  svg {
+    width: 539px;
+    height: auto;
   }
 }
 
