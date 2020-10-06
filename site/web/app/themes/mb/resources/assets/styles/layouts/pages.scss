@@ -1,9 +1,11 @@
+/* General */
 section.single-page {
   section.entry-content {
     max-width: 735px;
   }
 }
 
+/* About */
 #page-about {
   header.page-header {
     color: $lightblue;
@@ -21,6 +23,7 @@ section.single-page {
   }
 }
 
+/* Services */
 #page-services {
   header.page-header {
     color: $topaz;
@@ -142,6 +145,42 @@ section.single-page {
             }
           }
         }
+      }
+    }
+  }
+}
+
+/* Clients */
+#page-clients {
+  header.page-header {
+    color: $blueberry;
+  }
+}
+
+section#filter-list {
+  .filter-list {
+    a.category {
+      cursor: pointer;
+      border-radius: 14.5px;
+      padding: 6px;
+  
+      &.active {
+        border: 1px solid;
+      }
+  
+      & + a {
+        margin-left: 40px;
+      }
+    }
+  }
+
+  ul.list {
+    & > li {
+      opacity: 0;
+      transition: opacity 250ms ease-in-out;
+
+      &.visible {
+        opacity: 1;
       }
     }
   }

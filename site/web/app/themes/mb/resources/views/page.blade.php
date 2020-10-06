@@ -24,6 +24,10 @@
       @include('partials.section-services')
     @endif
 
+    @if(is_page('Clients'))
+      @include('partials.section-clients')
+    @endif
+
     @include('partials.prefooter')
   @endwhile
 @endsection

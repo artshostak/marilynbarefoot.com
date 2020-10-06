@@ -100,6 +100,71 @@ barba.init({
         }, 50));
       },
     },
+    {
+      namespace: 'Clients',
+      afterEnter() {
+        // Animation for Clients
+        let $filter = $('#filter-list');
+        function popLoad() {
+          if($filter.length > 0) {
+            var delay = 0;
+            var $listSizeItem = $filter.find('.list').children('li');
+            setTimeout(function() {
+              $($listSizeItem).each(function() {
+                var $item = $(this);
+                setTimeout(function() {
+                  $item.addClass('visible');
+                }, delay+=150);
+              });
+            }, 150);
+          }
+        }
+
+        $(window).on('scroll' , _.debounce(() => {
+          $filter.mostVisible({
+            percentage: true,
+            offset: 160,
+          }).addClass('visible');
+        }, 50));
+
+        var instance = new mostVisible('#filter-list');
+        instance.getMostVisible(popLoad());
+
+        // Filtering
+        var options = {
+          valueNames: [ 'categories' ],
+        };
+        const filterList = new List('filter-list', options);
+        
+        $('a.category').click(function(e) {
+          e.preventDefault();
+          $('a.category').removeClass('active');
+          $('ul.list > li').each(function() {
+            $(this).removeClass('visible');
+          });
+
+          $(this).addClass('active');
+          if($(this).hasClass('show-all')) {
+            filterList.filter();
+            return false;
+          } else {
+            var selection = $(this).text();
+            filterList.filter(function(item) {
+              var cats = item.values().categories.split(', ');
+              for (var i=0, j=cats.length; i<j; i++) {
+                if (cats[i] == selection) {
+                  return true;
+                }
+              }
+            });
+          }
+        });
+
+        filterList.on('updated', function() {
+          popLoad();
+        });
+      },
+    },
   ],
   transitions: [
     {
@@ -119,7 +184,6 @@ barba.init({
         $(window).scrollTop(0);
         $('.barba-container').fadeIn();
       },
-      after() {
         $('body').attr('class', $('#body-classes').attr('class'));
       },
       once(data) {

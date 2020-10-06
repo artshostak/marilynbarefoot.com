@@ -322,6 +322,20 @@ small {
     }
   }
 
+  &.six-col {
+    @include small-up {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include medium-up {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include large-up {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
   .offset {
     @include medium-up {
       grid-column: 3/13;
@@ -677,12 +691,20 @@ small {
     max-width: 228px;
   }
 
+  &.max-348 {
+    max-width: 348px;
+  }
+
   &.max-430 {
     max-width: 430px;
   }
 
   &.max-550 {
     max-width: 550px;
+  }
+
+  &.max-734 {
+    max-width: 734px;
   }
 
   &.max-900 {

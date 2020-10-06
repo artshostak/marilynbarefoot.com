@@ -47,16 +47,14 @@
           
           @if(get_field('testimonial', $id))
             <div class="toggle">
-              <div class="testimonial medium">
-                @while(have_rows('testimonial', $id)) @php(the_row())
-                  @if(get_sub_field('quote'))
+              @while(have_rows('testimonial', $id)) @php(the_row())
+                @if(get_sub_field('quote') || get_sub_field('source'))
+                  <div class="testimonial medium">
                     <?= the_sub_field('quote'); ?>
-                  @endif
-                  @if(get_sub_field('source'))
                     &mdash; <?= the_sub_field('source'); ?>
-                  @endif
-                @endwhile
-              </div>
+                  </div>
+                @endif
+              @endwhile
             </div>
           @endif
         </div>
