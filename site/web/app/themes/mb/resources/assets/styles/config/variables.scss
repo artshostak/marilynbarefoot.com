@@ -203,6 +203,21 @@ h4,
   }
 }
 
+h5,
+.h5 {
+  font-family: $font-family-base;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: normal;
+  color: inherit;
+  margin: 0 0 2px;
+}
+
+.medium {
+  font-size: 16px;
+  line-height: 1.19;
+}
+
 small {
   font-family: $font-family-base;
   font-size: 14px;

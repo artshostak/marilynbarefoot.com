@@ -45,6 +45,21 @@ if (function_exists('acf_add_options_page')) {
     acf_add_options_page();
 }
 
+// Add field key of the repeater
+add_filter('acf/load_value/key=field_5f7ca66e40270',  'afc_load_my_repeater_value', 10, 3);
+function afc_load_my_repeater_value($value, $post_id, $field) {
+  if ( get_post_status( $post_id ) === 'auto-draft' ) {
+    $value	= array();
+    $value[] = array(
+      'field_5f7ca71940273' => 'Duration'
+    );
+    $value[] = array(
+      'field_5f7ca71940273' => 'Participants'
+    );
+  }
+  return $value;
+}
+
 /*
 |--------------------------------------------------------------------------
 | Enable Sage Theme Support

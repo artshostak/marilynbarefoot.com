@@ -83,9 +83,9 @@ barba.init({
       namespace: 'Services',
       afterEnter() {
         let $service = $('.service-full');
-        
-        $service.on('click', function() {
-          $service.toggleClass('active');
+
+        $service.on('click', function(e) {
+          $(e.currentTarget).toggleClass('active');
         });
 
         $(window).on('scroll' , _.debounce(() => {

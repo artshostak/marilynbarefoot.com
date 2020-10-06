@@ -12,7 +12,7 @@
               {{the_sub_field('description')}}
             </div>
             @php($link = get_sub_field('link'))
-            @include('partials.link', ['class' => 'button'])
+            @include('partials.link', ['class' => 'button wide'])
           </div>
           <div class="right">
             @php($image = get_sub_field('image'))

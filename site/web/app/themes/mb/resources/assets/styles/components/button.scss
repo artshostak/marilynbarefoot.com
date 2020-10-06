@@ -7,5 +7,9 @@
    display: inline-block;
    border: 1px solid;
    border-radius: 25px;
-   padding: 10px 15px;
+   padding: 8px 15px 10px;
+
+   &.wide {
+     padding: 8px 22px 10px;
+   }
  }

@@ -29,39 +29,13 @@ section.single-page {
   & ~ section.services {
     article.service-full {
       position: relative;
-
-      &.visible {
-        background: $dark-blue-grey;
-        color: $white;
-
-        .grid::after {
-          filter: invert(1);
-        }
-      }
-
-      @keyframes bounce {
-        0% {
-          transform: translateY(0);
-        }
-      
-        25% {
-          transform: translateY(-25%);
-        }
-      
-        50% {
-          transform: translateY(0);
-        }
-      
-        75% {
-          transform: translateY(-25%);
-        }
-      
-        100% {
-          transform: translateY(0);
-        }
-      }
+      transition: all 250ms ease-in-out;
 
       &:hover {
+        cursor: pointer;
+      }
+
+      &:not(.active):hover {
         .grid::after {
           animation: bounce 1s ease-in-out infinite alternate-reverse;
         }
@@ -71,6 +45,7 @@ section.single-page {
         padding-top: 53px;
         padding-bottom: 67px;
         position: relative;
+        border-top: 1px solid;
 
         &::after {
           content: "";
@@ -84,24 +59,88 @@ section.single-page {
           right: 0;
         }
 
+        .toggle {
+          display: none;
+        }
+
         .left {
           grid-column: 1/4;
+
+          .wrapper {
+            max-width: 253px;
+          }
         }
   
         .right {
           grid-column: 5/10;
+          align-self: center;
+
+          .wrapper {
+            max-width: 533px;
+          }
+
+          p:not(:first-of-type) {
+            display: none;
+          }
+
+          .testimonial {
+            max-width: 385px;
+            padding: 30px 20px;
+            border: 1px solid;
+            border-radius: 30px;
+            margin-top: 40px;
+
+            p:first-of-type {
+              margin-top: 0;
+            }
+          }
         }
       }
 
-      & + article {
-        &:last-of-type {
-          .grid {
-            border-bottom: 1px solid;
+      &:first-of-type .grid {
+        border-top: 0;
+      }
+
+      &:last-of-type .grid {
+        border-bottom: 1px solid;
+      }
+
+      &.visible {
+        background: $dark-blue-grey;
+        color: $white;
+
+        .grid {
+          border-color: transparent;
+
+          &::after {
+            filter: invert(1);
           }
         }
 
+        & + article {
+          .grid {
+            border-top-color: transparent;
+          }
+        }
+      }
+
+      &.active {
         .grid {
-          border-top: 1px solid;
+          &::after {
+            transform: rotate(180deg);
+          }
+
+          .toggle {
+            display: block;
+          }
+
+          .right {
+            padding-top: 44px;
+
+            p:not(:first-of-type) {
+              display: block;
+            }
+          }
         }
       }
     }
