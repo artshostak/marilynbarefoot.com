@@ -5,8 +5,10 @@ import 'jquery';
 import barba from '@barba/core';
 import gsap from 'gsap';
 import _ from 'underscore';
-import 'most-visible';
+import mostVisible from 'most-visible';
 import Lottie from 'lottie-web';
+import 'slick-carousel';
+import List from 'list.js';
 
 // Lottie
 function playAnimation() {
@@ -20,6 +22,16 @@ function playAnimation() {
   });
 }
 
+// Delay
+function delay(n) {
+  n = n || 2000
+  // Keep official documentation wording, done -> resolve
+  // and make it more concise
+  return new Promise(resolve => {
+    setTimeout(resolve, n)
+  })
+}
+
 // Loader
 const loadingScreen = document.querySelector('.loading-screen');
 const $header = $('header.top');
@@ -29,13 +41,14 @@ function pageTransitionIn() {
   return gsap
     .timeline()
     .set(loadingScreen, { transformOrigin: 'bottom left'})
-    .to(loadingScreen, { duration: .5, scaleY: 1, transformOrigin: 'bottom left'})
+    .to(loadingScreen, { duration: .5, scaleY: 1 })
+    // .to(loadingScreen, { duration: .5, scaleY: 1, transformOrigin: 'bottom left'})
 }
 
 // Function to add and remove the page transition screen
 function pageTransitionOut(container) {
   return gsap
-    .timeline({ delay: 0.5 })
+    .timeline({ delay: 1 }) // More readable to put it here
     .add('start') // Use a label to sync screen and content animation
     .to(loadingScreen, {
       duration: 0.5,
@@ -51,7 +64,12 @@ function pageTransitionOut(container) {
 function contentAnimation(container) {
   return gsap
     .timeline()
-    .from($header, { duration: .5, translateY: -100, opacity: 0})
+    .from($header, {
+      duration: 0.25,
+      translateY: -82,
+      opacity: 0,
+    }
+  )
 }
 
 // Barba 
@@ -168,27 +186,18 @@ barba.init({
   ],
   transitions: [
     {
-      name: 'basic',
-      sync: true,
-      beforeLeave() {
-        pageTransitionIn();
-      },
+      // sync: true,
       leave(data) {
-        // data.current.container.remove();
-      },
-      beforeEnter() {
-
+        pageTransitionIn()
+        data.current.container.remove()
       },
       enter(data) {
-        pageTransitionOut(data.next.container);
         $(window).scrollTop(0);
-        $('.barba-container').fadeIn();
-      },
+        pageTransitionOut(data.next.container)
         $('body').attr('class', $('#body-classes').attr('class'));
       },
       once(data) {
         contentAnimation(data.next.container);
-        $('footer.content-info').addClass('fade-in');
       },
     },
   ],

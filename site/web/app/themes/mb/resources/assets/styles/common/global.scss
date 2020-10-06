@@ -19,6 +19,12 @@ body {
   transform-origin: top left;
 }
 
+body.services {
+  .loading-screen {
+    background: $lightblue;
+  }
+}
+
 .loading-container {
   position: fixed;
   top: 0;
