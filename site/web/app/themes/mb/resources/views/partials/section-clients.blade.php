@@ -1,17 +1,29 @@
 @if(get_field('testimonial'))
   <section class="testimonial container">
-    <div class="slick">
-      @while(have_rows('testimonial')) @php(the_row())
-        <div class="slide">
-          <small>{{the_sub_field('name')}}</small>
-          <div class="wrapper max-734">
-            <h4><?= the_sub_field('quote'); ?></h4>
-          </div>
-          <div class="wrapper max-348">
-            <small>&mdash; <?= the_sub_field('source'); ?></small>
-          </div>
+    <div class="glide">
+      <div data-glide-el="track" class="glide__track">
+        <ul class="glide__slides">
+          @while(have_rows('testimonial')) @php(the_row())
+            <div class="glide__slide">
+              <small>{{the_sub_field('name')}}</small>
+              <div class="wrapper max-734">
+                <h4><?= the_sub_field('quote'); ?></h4>
+              </div>
+              <div class="wrapper max-348">
+                <small>&mdash; <?= the_sub_field('source'); ?></small>
+              </div>
+            </div>
+          @endwhile
+        </ul>
+        <div class="glide__arrows" data-glide-el="controls">
+          <a class="glide__arrow glide__arrow--left" data-glide-dir="<">
+            prev
+          </a>
+          <a class="glide__arrow glide__arrow--right" data-glide-dir=">">
+            next
+          </a>
         </div>
-      @endwhile
+      </div>
     </div>
   </section>
 @endif
@@ -38,7 +50,7 @@
         'hide_empty'   => true,
       ) );
       foreach( $categories as $category ) {
-        echo '<a class="category">' . $category->name . '</a>';
+        echo '<a class="category outline">' . $category->name . '</a>';
       }
     ?>
   </div>

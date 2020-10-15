@@ -1,6 +1,20 @@
 /**
  * Global
  */
+ * {
+  outline: none;
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+::selection {
+  background: black;
+  color: white;
+}
 
 body {
   margin: 0;
@@ -24,13 +38,17 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  // background: $white;
   overflow: hidden;
   z-index: 10;
   pointer-events: none;
 }
 
 /* Helpers */
+figure {
+  margin: 0;
+  padding: 0;
+}
+
 .unstyled {
   margin: 0;
   padding: 0;
@@ -38,8 +56,36 @@ body {
 }
 
 .circle {
+  position: relative;
   border-radius: 50%;
+  line-height: 0;
   overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.hover {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    background-color: rgba(18, 187, 164, 0.6);
+    transition: opacity 250ms ease-in-out;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
 }
 
 .border {
@@ -187,6 +233,85 @@ section {
   }
 }
 
+.scroll {
+  display: grid;
+  grid-gap: $gap;
+  grid-template-columns: 200px;
+  grid-auto-columns: calc(202px - 24px);
+  grid-template-rows: minmax(202px, 1fr);
+  grid-auto-flow: column;
+  overflow-x: scroll;
+  scroll-snap-type: x proximity;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::before {
+    content: "";
+    width: 200px;
+  }
+
+  &::after {
+    content: "";
+    width: $gap;
+  }
+}
+
+/* Video */
+video {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.vimeo {
+  position: relative;
+  padding-bottom: 56.29%;
+
+  .vimeo-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  figure {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .pin {
+    z-index: 3;
+
+    svg {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      transition: transform 250ms ease-in-out;
+    }
+
+    &:hover svg {
+      transform: scale(1.3);
+    }
+  }
+}
+
 /* Animation */
 @keyframes bounce {
   0% {
@@ -209,3 +334,26 @@ section {
     transform: translateY(0);
   }
 }
+
+/*
+@keyframes outline {
+  0% {
+    background-size: 0 1px, 1px 0, 0 1px, 1px 0;
+  }
+
+  25% {
+    background-size: 100% 1px, 1px 0, 0 1px, 1px 0;
+  }
+
+  50% {
+    background-size: 100% 1px, 1px 100%, 0 1px, 1px 0;
+  }
+
+  75% {
+    background-size: 100% 1px, 1px 100%, 100% 1px, 1px 0;
+  }
+
+  100% {
+    background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+  }
+} */

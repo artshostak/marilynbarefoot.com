@@ -3,13 +3,74 @@
  */
 
  .button,
+ .btn,
  button {
+   position: relative;
    display: inline-block;
    border: 1px solid;
    border-radius: 25px;
    padding: 8px 15px 10px;
+   overflow: hidden;
+   transition: color 250ms ease-in-out;
 
    &.wide {
      padding: 8px 22px 10px;
    }
+
+   &::after {
+     content: "";
+     width: 0;
+     height: 100%;
+     background: black;
+     position: absolute;
+     left: 0;
+     top: 0;
+     bottom: 0;
+     transition: all 250ms ease-in-out;
+     z-index: -1;
+   }
+
+   &:hover {
+     color: white;
+
+     &::after {
+        width: 100%;
+     }
+   }
  }
+
+ /* Do not use
+.outline {
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to right, black 100%, black 100%), linear-gradient(to bottom, black 100%, black 100%), linear-gradient(to right, black 100%, black 100%), linear-gradient(to bottom, black 100%, black 100%);
+  background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  animation: outline 1.25s cubic-bezier(0.19, 1, 0.22, 1) 1;
+  animation-play-state: paused;
+
+  &:hover {
+    animation-play-state: running;
+  }
+} */
+
+ .underline {
+  position: relative;
+  border-radius: 25px;
+
+  &::after {
+    background: black;
+    content: "";
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: width 350ms ease, background 350ms ease;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+}

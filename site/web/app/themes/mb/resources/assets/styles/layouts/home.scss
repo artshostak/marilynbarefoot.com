@@ -1,4 +1,7 @@
 body.home {
+  width: 100vw;
+  overflow-x: hidden;
+
   .loading-screen {
     background: $azul;
   }
@@ -27,9 +30,36 @@ section.hero {
   }
 }
 
+section.clients {
+  header {
+    & > div {
+      margin-left: 200px;
+    }
+  }
+
+  .scroll {
+    cursor: pointer;
+
+    article {
+      transform: scale(1);
+      transition: transform 250ms ease-in-out;
+    }
+
+    &.active {
+      article {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
 section.about {
   .grid {
     align-items: center;
+
+    .left {
+      max-width: 734px;
+    }
 
     .right {
       padding: 30px;
@@ -42,7 +72,37 @@ section.about {
 }
 
 section.services {
-  img {
-    @extend .circle;
+  header {
+    & > div {
+      margin-left: 200px;
+    }
+  }
+
+  .scroll {
+    grid-gap: 100px;
+    grid-template-columns: 25%;
+    grid-auto-columns: calc(25% - 50px);
+    grid-template-rows: minmax(25%, 1fr);
+
+    &::before {
+      content: "";
+    }
+
+    .post-image {
+      margin-bottom: 40px;
+
+      .post-featured-image {
+        @extend .circle, .hover;
+
+        img {
+          max-width: 300px;
+          max-height: 300px;
+        }
+      }
+    }
+
+    .post-content {
+      max-width: 350px;
+    }
   }
 }

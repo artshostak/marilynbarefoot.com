@@ -36,6 +36,12 @@ footer.bottom {
     .copyright {
       color: #e6ebf2;
     }
+
+    ul > li > a {
+      &::after {
+        background: white;
+      }
+    }
   }
 
   section + section {
@@ -53,6 +59,10 @@ footer.bottom {
 
     li + li {
       margin-top: 5px;
+    }
+
+    a {
+      @extend .underline;
     }
   }
 }

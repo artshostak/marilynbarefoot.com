@@ -1,5 +1,5 @@
 <article @php post_class('service', $id) @endphp>
-  <a class="post-image" href="{{ get_permalink($id) }}">
+  <a class="post-image" href="/services/#{{basename(get_permalink($id))}}">
     <div class="post-featured-image">
       <?= get_the_post_thumbnail($id, 'full'); ?>
     </div>

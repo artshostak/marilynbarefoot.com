@@ -20,6 +20,14 @@ header.top {
   &.transparent {
     background: transparent;
     color: white;
+
+    .menu-main-container {
+      ul > li > a {
+        &::after {
+          background: white;
+        }
+      }
+    }
   }
 
   .container {
@@ -41,6 +49,10 @@ header.top {
 
         & + li {
           margin-left: 43px;
+        }
+
+        a {
+          @extend .underline;
         }
       }
     }

@@ -7,8 +7,10 @@ import gsap from 'gsap';
 import _ from 'underscore';
 import mostVisible from 'most-visible';
 import Lottie from 'lottie-web';
-import 'slick-carousel';
 import List from 'list.js';
+import Glide from '@glidejs/glide'
+import Player from '@vimeo/player';
+import 'scrollit';
 
 // Lottie
 function playAnimation() {
@@ -82,6 +84,37 @@ barba.init({
           }
         });
         playAnimation();
+
+        // Scroller
+        const $sliderContainer = $('.scrollable');
+        const slider = document.querySelector('.scrollable > .scroll');
+        if($sliderContainer.length > 0) {
+          let isDown = false,
+          startX,
+          scrollLeft;
+
+          slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+          });
+          slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+          });
+          slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+          });
+          slider.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; //scroll-fast
+            slider.scrollLeft = scrollLeft - walk;
+          });
+        }
       },
       afterLeave() {
         // Remove transparent header effect for other pages
@@ -92,7 +125,6 @@ barba.init({
       namespace: 'Services',
       afterEnter() {
         let $service = $('.service-full');
-
         $service.on('click', function(e) {
           $(e.currentTarget).toggleClass('active');
         });
@@ -107,6 +139,48 @@ barba.init({
             offset: 160,
           }).addClass('visible');
         }, 50));
+
+        if(window.location.hash) {
+          $('html, body').animate({
+            scrollTop: $(window.location.hash).offset().top - 200 + 'px'
+          }, 500, 'swing');
+        }
+      },
+    },
+    {
+      namespace: 'Content',
+      afterEnter() {
+        // Scollit
+        if($('header.sticky').length > 0) {
+          $.scrollIt({
+            upKey: 38,
+            downKey: 40,
+            topOffset: -82,
+            easing: 'easeInOutExpo',
+            scrollTime: 250,
+          });
+        }
+
+        // Toggle more
+        let $series = $('.series');
+        $series.on('click', function(e) {
+          $(e.currentTarget).toggleClass('active');
+        });
+
+        // Vimeo
+        if ($('.video-trigger').length > 0) {
+          $('.video-trigger').on('click', 'a', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var $trigger = $(this).parents('.video-trigger');
+            const vimeo = $trigger.find('.vimeo-video').data('vimeo-id');
+            const player = new Player('vimeo-' + vimeo);
+            $trigger.find('figure').addClass('hidden');
+            $trigger.find('.pin').hide();
+            player.setVolume(0.5);
+            player.play();
+          });
+        }
       },
     },
     {
@@ -129,6 +203,7 @@ barba.init({
           }
         }
 
+        // Most Visible Scroll
         $(window).on('scroll' , _.debounce(() => {
           $filter.mostVisible({
             percentage: true,
@@ -138,6 +213,9 @@ barba.init({
 
         var instance = new mostVisible('#filter-list');
         instance.getMostVisible(popLoad());
+
+        // Glide slider
+        new Glide('.glide').mount();
 
         // Filtering
         var options = {

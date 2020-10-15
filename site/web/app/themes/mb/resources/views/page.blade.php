@@ -18,14 +18,12 @@
 
     @if(is_page('About'))
       @include('partials.section-about')
-    @endif
-
-    @if(is_page('Services'))
+    @elseif(is_page('Services'))
       @include('partials.section-services')
-    @endif
-
-    @if(is_page('Clients'))
+    @elseif(is_page('Clients'))
       @include('partials.section-clients')
+    @elseif(is_page('Content'))
+      @include('partials.section-content')
     @endif
 
     @include('partials.prefooter')

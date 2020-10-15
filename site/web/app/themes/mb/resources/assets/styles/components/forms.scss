@@ -1,0 +1,67 @@
+label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 10px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 20px;
+  border-radius: 10px;
+  border: solid 1px;
+  padding: 10px 20px 12px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: calc(100% - 12px);
+  background-position-y: 12px;
+  padding-right: 2rem;
+}
+
+form.caldera_forms_form {
+  margin-top: 120px;
+
+  .row {
+    width: 100%;
+    display: flex;
+    margin-bottom: $spacer-s;
+
+    .col-sm-12 {
+      width: 100%;
+    }
+
+    .col-sm-6 {
+      width: 50%;
+
+      &.first_col {
+        margin-right: 12px;
+      }
+
+      &.last_col {
+        margin-left: 12px;
+      }
+    }
+
+    input[type="submit"] {
+      background: white;
+      width: 150px;
+
+      &:hover {
+        cursor: pointer;
+        background: black;
+        color: white;
+        border-color: black;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-<article @php post_class('service-full', $id) @endphp>
+<article id="{{basename(get_permalink($id))}}" @php post_class('service-full', $id) @endphp>
   <div class="container">
     <div class="grid">
       <div class="left post-image">

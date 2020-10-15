@@ -2,6 +2,7 @@
 
 @section('content')
   @while(have_posts()) @php(the_post())
+    {{-- Hero --}}
     <section class="hero fullpage">
       <div class="container py-l">
         @php($animation = get_field('animation'))
@@ -30,20 +31,20 @@
   {{-- Clients --}}
   @php($clients = get_field('clients'))
   @if($clients)
-    <section class="clients container">
-      <header class="grid">
-        <div class="offset-2 grid border-top flex spaced centered">
+    <section class="clients">
+      <header class="container">
+        <div class="border-top flex spaced centered">
           <div class="left">
             @php($field = get_field_object('clients'))
             <p>{{$field['label']}}</p>
           </div>
           <div class="right">
-            <a href="/clients">View All</a>
+            <a class="underline" href="/clients">View All</a>
           </div>
         </div>
       </header>
-      <div class="clients grid">
-        <div class="offset-2 grid flex spaced centered">
+      <div class="clients scrollable">
+        <div class="scroll">
           @foreach($clients as $c)
             @include('partials.content-client', ['id' => $c->ID])
           @endforeach
@@ -77,20 +78,20 @@
   {{-- Services --}}
   @php($services = get_field('services'))
   @if($services)
-    <section class="services container">
-      <header class="grid">
-        <div class="offset-2 grid border-top flex spaced centered">
+    <section class="services">
+      <header class="container">
+        <div class="border-top flex spaced centered">
           <div class="left">
             @php($field = get_field_object('services'))
             <p>{{$field['label']}}</p>
           </div>
           <div class="right">
-            <a href="/services">View All</a>
+            <a class="underline" href="/services">View All</a>
           </div>
         </div>
       </header>
-      <div class="services grid">
-        <div class="offset-2 grid flex spaced centered">
+      <div class="services scrollable">
+        <div class="scroll">
           @foreach($services as $s)
             @include('partials.content-service', ['id' => $s->ID])
           @endforeach
