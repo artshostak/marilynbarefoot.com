@@ -1,19 +1,32 @@
-<article @php(post_class(''))>
-  <header>
-    <h1 class="entry-title">
+<article @php(post_class('single-article mb-xl'))>
+  <header class="page-header mb-m">
+    <h2 class="entry-title">
       {!! $title !!}
-    </h1>
-
-    @include('partials/entry-meta')
+    </h2>
   </header>
 
-  <div class="entry-content">
-    @php(the_content())
+  <div class="grid">
+    <div class="left mb-m">
+      <div class="small mb-m">
+        @include('partials/entry-meta')
+      </div>
+
+      <section class="entry-content">
+        @php(the_content())
+      </section>
+
+      <footer class="author mt-m">    
+        <span rel="author" class="fn">
+          — {{ get_the_author() }}
+        </span>
+      </footer>
+    </div>
+
+    <div class="right">
+      <?= get_the_post_thumbnail('', 'full'); ?>
+      <figcaption class="small py">
+        {{the_post_thumbnail_caption()}}
+      </figcaption>
+    </div>
   </div>
-
-  <footer>
-    {!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
-  </footer>
-
-  @php(comments_template())
 </article>

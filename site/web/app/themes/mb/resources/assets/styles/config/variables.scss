@@ -218,7 +218,8 @@ h5,
   line-height: 1.19;
 }
 
-small {
+small,
+.small {
   font-family: $font-family-base;
   font-size: 14px;
   font-weight: normal;

@@ -1,3 +1,4 @@
+/* Blog Posts */
 body.blog {
   header.page-header {
     color: $darkish-purple;
@@ -50,5 +51,37 @@ section.blog {
 section.entry-content {
   hr {
     margin: 120px -40px;
+  }
+}
+
+/* Single Article */
+body.single-post {
+  header.page-header {
+    color: $darkish-purple;
+  }
+
+  article.single-article {
+    .grid {
+      .left {
+        grid-column: 1/7;
+
+        section.entry-content {
+          max-width: 542px;
+        }
+      }
+
+      .right {
+        grid-column: 8/12;
+        text-align: right;
+
+        img {
+          max-width: 350px;
+          heigth: auto;
+          border-radius: 150px;
+          line-height: 0;
+          overflow: hidden;
+        } 
+      }
+    }
   }
 }

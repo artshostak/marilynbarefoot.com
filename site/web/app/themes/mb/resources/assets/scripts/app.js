@@ -12,6 +12,8 @@ import Glide from '@glidejs/glide'
 import Player from '@vimeo/player';
 import 'scrollit';
 
+let $body = $('body');
+
 // Lottie
 function playAnimation() {
   let lottie = document.getElementById('lottie'),
@@ -22,6 +24,18 @@ function playAnimation() {
     autoplay: true,
     loop: false,
   });
+}
+
+function scrollingHeader() {
+  if(!$body.hasClass('home')) {
+    $(window).on('scroll', function() {
+      if ($(window).scrollTop() > 0) {
+        $header.addClass('white');
+      } else {
+        $header.removeClass('white');
+      }
+    });
+  }
 }
 
 // Loader
@@ -82,7 +96,9 @@ barba.init({
         $(window).on('scroll', function() {
           let scroll = $(window).scrollTop();
           if(scroll >= (window.innerHeight - 41)) {
-            $header.removeClass('transparent');
+            $header.addClass('white');
+          } else {
+            $header.removeClass('white');
           }
         });
         playAnimation();
@@ -119,7 +135,7 @@ barba.init({
         }
       },
       afterLeave() {
-        // Remove transparent header effect for other pages
+        $header.removeClass('white');
         $header.removeClass('transparent');
       },
     },
@@ -262,19 +278,19 @@ barba.init({
         data.current.container.remove()
       },
       leave() {
-        $header.addClass('transparent');
         pageTransitionIn()
       },
       beforeEnter() {
-        $('body').attr('class', $('#body-classes').attr('class'));
+        $body.attr('class', $('#body-classes').attr('class'));
       },
       enter(data) {
         $(window).scrollTop(0);
         pageTransitionOut(data.next.container)
-        $header.removeClass('transparent');
+        scrollingHeader();
       },
       once(data) {
         contentAnimation(data.next.container);
+        scrollingHeader();
       },
     },
   ],

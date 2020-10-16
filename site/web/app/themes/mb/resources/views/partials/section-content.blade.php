@@ -87,7 +87,7 @@
     </header>
     <div class="columns two-col wrapper max-734">
       @while(have_rows('press')) @php(the_row())
-        <div class="item mb-m">
+        <div class="item mb-l">
           <small>{{the_sub_field('item')}}</small>
           <div class="h4">
             @php($link = get_sub_field('link'))
