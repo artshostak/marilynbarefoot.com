@@ -103,18 +103,18 @@
 @php($blog = get_field('blog'))
 @if($blog)
   <section class="blog" data-scroll-index="4">
-    <header class="container">
-      <div class="border-top flex spaced centered">
-        <div class="left">
-          @php($field = get_field_object('blog'))
-          <p>{{$field['label']}}</p>
-        </div>
-        <div class="right">
-          <a href="/blog">View All</a>
-        </div>
-      </div>
-    </header>
     <div class="blog scrollable">
+      <header class="container">
+        <div class="border-top flex spaced centered">
+          <div class="left">
+            @php($field = get_field_object('blog'))
+            <p>{{$field['label']}}</p>
+          </div>
+          <div class="right">
+            <a href="/blog">View All</a>
+          </div>
+        </div>
+      </header>
       <div class="scroll">
         @foreach($blog as $b)
           @include('partials.content', ['id' => $b->ID])

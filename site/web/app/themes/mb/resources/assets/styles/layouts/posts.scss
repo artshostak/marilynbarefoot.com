@@ -4,6 +4,49 @@ body.blog {
   }
 }
 
+section.blog {
+  .scrollable {
+    header,
+    .scroll {
+      transform: translateX(50%);
+    }
+
+    .scroll {
+      grid-gap: 76px;
+      grid-template-columns: 300px;
+      grid-auto-columns: 300px;
+      grid-template-rows: minmax(300px, 1fr);
+    }
+  }
+
+  &.grid {
+    grid-gap: 100px;
+
+    & > article {
+      margin-bottom: 50px;
+    }
+  }
+
+  article {
+    .post-image {
+      display: block;
+      margin-bottom: 20px;
+
+      .post-featured-image {
+        border-radius: 30px;
+        line-height: 0;
+        overflow: hidden;
+
+        @extend .hover;
+
+        &::after {
+          background-color: rgba(108, 33, 97, 0.6);
+        }
+      }
+    }
+  }
+}
+
 section.entry-content {
   hr {
     margin: 120px -40px;

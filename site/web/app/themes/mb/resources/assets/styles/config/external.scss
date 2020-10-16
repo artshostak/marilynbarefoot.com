@@ -2,4 +2,18 @@
  * External
  */
 
-// @import '~bootstrap/scss/bootstrap';
+ @import '~@glidejs/glide/dist/css/glide.core';
+
+.glide__arrows {
+  a.glide__arrow {
+    cursor: pointer;
+
+    svg {
+      transition: transform 250ms ease-in-out;
+    }
+
+    &:hover svg {
+      transform: scale(1.1);
+    }
+  }
+}

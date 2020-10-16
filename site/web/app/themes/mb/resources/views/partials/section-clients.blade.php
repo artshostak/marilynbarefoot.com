@@ -17,10 +17,14 @@
         </ul>
         <div class="glide__arrows" data-glide-el="controls">
           <a class="glide__arrow glide__arrow--left" data-glide-dir="<">
-            prev
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+              <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g stroke="#000"><g><path d="M24 6L24 24 6 24" transform="translate(-40 -735) rotate(90 -332.5 402.5) rotate(45 15 15)"/></g></g></g>
+            </svg>
           </a>
           <a class="glide__arrow glide__arrow--right" data-glide-dir=">">
-            next
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+              <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g stroke="#000"><g><path d="M24 6L24 24 6 24" transform="translate(-90 -735) matrix(0 1 1 0 90 735) rotate(45 15 15)"/></g></g></g>
+            </svg>
           </a>
         </div>
       </div>

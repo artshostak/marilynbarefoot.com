@@ -11,7 +11,7 @@
       <h1 class="hidden">{{ $siteName }}</h1>
     </a>
 
-    <nav class="nav-primary">
+    <nav class="nav-primary hide-small">
       @if (has_nav_menu('primary_navigation'))
         {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
       @endif

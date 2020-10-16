@@ -3,7 +3,6 @@
  */
 
  .button,
- .btn,
  button {
    position: relative;
    display: inline-block;
@@ -39,7 +38,7 @@
    }
  }
 
- /* Do not use
+ /* Not working Outline
 .outline {
   background-repeat: no-repeat;
   background-image: linear-gradient(to right, black 100%, black 100%), linear-gradient(to bottom, black 100%, black 100%), linear-gradient(to right, black 100%, black 100%), linear-gradient(to bottom, black 100%, black 100%);

@@ -32,18 +32,18 @@
   @php($clients = get_field('clients'))
   @if($clients)
     <section class="clients">
-      <header class="container">
-        <div class="border-top flex spaced centered">
-          <div class="left">
-            @php($field = get_field_object('clients'))
-            <p>{{$field['label']}}</p>
-          </div>
-          <div class="right">
-            <a class="underline" href="/clients">View All</a>
-          </div>
-        </div>
-      </header>
       <div class="clients scrollable">
+        <header class="container">
+          <div class="border-top flex spaced centered">
+            <div class="left">
+              @php($field = get_field_object('clients'))
+              <p>{{$field['label']}}</p>
+            </div>
+            <div class="right">
+              <a class="underline" href="/clients">View All</a>
+            </div>
+          </div>
+        </header>
         <div class="scroll">
           @foreach($clients as $c)
             @include('partials.content-client', ['id' => $c->ID])
@@ -79,18 +79,18 @@
   @php($services = get_field('services'))
   @if($services)
     <section class="services">
-      <header class="container">
-        <div class="border-top flex spaced centered">
-          <div class="left">
-            @php($field = get_field_object('services'))
-            <p>{{$field['label']}}</p>
-          </div>
-          <div class="right">
-            <a class="underline" href="/services">View All</a>
-          </div>
-        </div>
-      </header>
       <div class="services scrollable">
+        <header class="container">
+          <div class="border-top flex spaced centered">
+            <div class="left">
+              @php($field = get_field_object('services'))
+              <p>{{$field['label']}}</p>
+            </div>
+            <div class="right">
+              <a class="underline" href="/services">View All</a>
+            </div>
+          </div>
+        </header>
         <div class="scroll">
           @foreach($services as $s)
             @include('partials.content-service', ['id' => $s->ID])

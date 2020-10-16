@@ -99,6 +99,10 @@ body.services {
     
             @extend .circle, .hover;
           }
+
+          .button::after {
+            background: white;
+          }
         }
   
         .right {
@@ -340,25 +344,10 @@ section#page-content {
     }
   }
 
-  & ~ section.blog {
-    header {
-      margin-left: 50%;
-    }
-
-    .blog {
-      &.scrollable {
-        .scroll {
-          grid-gap: 100px;
-          grid-template-columns: 25%;
-          grid-auto-columns: calc(25% - 50px);
-          grid-template-rows: minmax(25%, 1fr);
-        }
-      }
-
-      article {
-        img {
-          border-radius: 30px;
-        }
+  & ~ section.press {
+    a {
+      &:hover {
+        text-decoration: underline;
       }
     }
   }

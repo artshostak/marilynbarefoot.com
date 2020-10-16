@@ -72,10 +72,12 @@ barba.init({
     {
       namespace: 'Home',
       beforeEnter() {
-        // add transparent effect to header
-        $header.addClass('transparent');
+        //
       },
       afterEnter() {
+        // add transparent effect to header
+        $header.addClass('transparent');
+
         // Transparent header effect on scroll
         $(window).on('scroll', function() {
           let scroll = $(window).scrollTop();
@@ -260,6 +262,7 @@ barba.init({
         data.current.container.remove()
       },
       leave() {
+        $header.addClass('transparent');
         pageTransitionIn()
       },
       beforeEnter() {
@@ -268,6 +271,7 @@ barba.init({
       enter(data) {
         $(window).scrollTop(0);
         pageTransitionOut(data.next.container)
+        $header.removeClass('transparent');
       },
       once(data) {
         contentAnimation(data.next.container);

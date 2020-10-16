@@ -4,11 +4,11 @@
   <section class="index container">
     @include('partials.page-header')
 
-    <div class="grid three-col my-xl">
+    <section class="blog grid three-col my-xl">
       @while(have_posts()) @php(the_post())
         @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
       @endwhile
-    </div>
+    </section>
 
     {!! get_the_posts_navigation() !!}
   </section>
