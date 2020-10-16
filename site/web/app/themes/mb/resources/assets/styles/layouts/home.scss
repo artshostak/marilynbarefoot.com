@@ -6,6 +6,19 @@ body.home {
     background: $azul;
   }
 
+  header.top {
+    top: -100px !important;
+    opacity: 0 !important;
+  }
+
+  &.show-header {
+    header.top {
+      opacity: 1 !important;
+      top: 0 !important;
+      transition: all 500ms ease-in-out;
+    }
+  }
+
   .prefooter {
     .button {
       &:hover {
@@ -26,11 +39,23 @@ section.hero {
   background: $azul;
   color: white;
 
+  .container {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+  }
+
   #lottie {
     margin-top: 111px;
     width: 198px;
     height: 282px;
     object-fit: contain;
+
+    @include small-up {
+      width: 300px;
+      height: 400px; 
+    }
 
     @include medium-up {
       width: 450px;
@@ -40,11 +65,40 @@ section.hero {
 
   .wrapper {
     margin: 55px 0 55px auto;
+
+    & > h4 {
+      transition: all 500ms ease-in-out;;
+      transform: translateY(100%);
+      opacity: 0;
+    }
   }
 
-  svg {
-    width: 539px;
-    height: auto;
+  .logo {
+    display: none;
+
+    @include small-up {
+      display: block;
+    }
+
+    svg {
+      transition: all 500ms 500ms ease-in-out;;
+      transform: translateX(100%);
+      opacity: 0;
+      width: 539px;
+      height: auto;
+    }
+  }
+
+  &.active {
+    .wrapper > h4 {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .logo > svg {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
 

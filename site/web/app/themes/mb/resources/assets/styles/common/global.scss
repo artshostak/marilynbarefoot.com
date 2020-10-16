@@ -44,6 +44,15 @@ body {
   }
 }
 
+.barba-container {
+  opacity: 0;
+  transition: opacity 500ms 500ms ease-in-out;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
 /* Helpers */
 figure {
   margin: 0;

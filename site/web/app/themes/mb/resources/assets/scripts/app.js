@@ -54,10 +54,10 @@ const $header = $('header.top');
 // Function to add and remove the page transition screen
 function pageTransitionIn() {
   return gsap
-    .timeline()
+    .timeline({ delay: 0 })
     .set(loadingScreen, { transformOrigin: 'bottom left'})
-    .to(loadingScreen, { duration: .5, scaleY: 1 })
-    // .to(loadingScreen, { duration: .5, scaleY: 1, transformOrigin: 'bottom left'})
+    // .to(loadingScreen, { duration: 0.5, scaleY: 1 })
+    .to(loadingScreen, { duration: .5, scaleY: 1, transformOrigin: 'bottom left'})
 }
 
 // Function to add and remove the page transition screen
@@ -66,7 +66,7 @@ function pageTransitionOut(container) {
     .timeline({ delay: 1 }) // More readable to put it here
     .add('start') // Use a label to sync screen and content animation
     .to(loadingScreen, {
-      duration: 0.5,
+      duration: 1,
       scaleY: 0,
       skewX: 0,
       transformOrigin: 'top left',
@@ -77,18 +77,19 @@ function pageTransitionOut(container) {
 
 // Function to animate the content of each page
 function contentAnimation(container) {
-  return gsap
-    .timeline()
-    .from($header, {
-      duration: 0.50,
-      opacity: 0,
-    }
-  )
+  // return gsap
+  //   .timeline()
+  //   .from($header, {
+  //     duration: 0.5,
+  //     opacity: 0,
+  //     translateY: '-250px',
+  //   }
+  // )
 }
 
 // Barba 
 barba.init({
-  debug: true,
+  // debug: true,
   prevent: ({ el }) => el.classList && el.classList.contains('prevent'),
   views: [
     {
@@ -110,6 +111,14 @@ barba.init({
           }
         });
         playAnimation();
+
+        setTimeout(function() {
+          $('section.hero').addClass('active');
+        }, 1500);
+
+        setTimeout(function() {
+          $body.addClass('show-header');
+        }, 2500);
 
         // Scroller
         const $sliderContainer = $('.scrollable');
@@ -283,6 +292,7 @@ barba.init({
     {
       // sync: true,
       beforeLeave(data) {
+        $('.barba-container').fadeOut(100);
         data.current.container.remove()
       },
       leave() {
@@ -295,12 +305,14 @@ barba.init({
       enter(data) {
         $(window).scrollTop(0);
         pageTransitionOut(data.next.container)
+        $('.barba-container').addClass('visible');
         scrollingHeader();
       },
       once(data) {
         contentAnimation(data.next.container);
         mobileMenu();
         scrollingHeader();
+        $('.barba-container').addClass('visible');
       },
     },
   ],
