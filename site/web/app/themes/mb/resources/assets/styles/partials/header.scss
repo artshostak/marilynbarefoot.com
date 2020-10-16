@@ -158,17 +158,26 @@ body.menu-open {
   .wrapper {
     width: 100vw;
     height: 100vh;
-    padding: 10px;
+    padding: 12px;
     background: $dark-blue-grey;
     color: $white;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-flow: column;
     overflow: scroll;
+
+    @include small-up {
+      padding: 20px;
+    }
 
     .top {
       margin-top: 60px;
       margin-bottom: 60px;
+
+      @include small-up {
+        margin-top: 100px;
+        margin-bottom: 150px;
+      }
 
       ul > li {
         & + li {

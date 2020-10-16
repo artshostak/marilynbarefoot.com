@@ -45,7 +45,7 @@ $xl: 1900px;
 }
 
 @mixin medium-down {
-  @media only screen and (max-width: #{$medium - 1px}) {
+  @media only screen and (max-width: #{$medium}) {
     @content;
   }
 }
@@ -57,7 +57,7 @@ $xl: 1900px;
 }
 
 @mixin medium-up {
-  @media only screen and (min-width: #{$medium}) {
+  @media only screen and (min-width: #{$medium + 1px}) {
     @content;
   }
 }
@@ -237,13 +237,13 @@ small,
 
 .show-medium-up,
 .hide-small {
-  @media only screen and (max-width: $medium) {
+  @include medium-down {
     display: none !important;
   }
 }
 
 .show-large-up {
-  @media only screen and (max-width: $large) {
+  @include large-down {
     display: none !important;
   }
 }

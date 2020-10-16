@@ -166,6 +166,11 @@ span.screen-reader-text {
     padding-right: 0;
   }
 
+  @include small-up {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   @include large-up {
     padding-left: 40px;
     padding-right: 40px;

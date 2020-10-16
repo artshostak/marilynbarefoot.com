@@ -53,7 +53,6 @@ function pagination_bar() {
 
   if ($total_pages > 1){
       $current_page = max(1, get_query_var('paged'));
-
       echo paginate_links(array(
           'base' => get_pagenum_link(1) . '%_%',
           'format' => '/page/%#%',
@@ -63,7 +62,7 @@ function pagination_bar() {
   }
 }
 
-// Add field key of the repeater
+/* Add field key of the repeater */
 add_filter('acf/load_value/key=field_5f7ca66e40270',  'afc_load_my_repeater_value', 10, 3);
 function afc_load_my_repeater_value($value, $post_id, $field) {
   if ( get_post_status( $post_id ) === 'auto-draft' ) {

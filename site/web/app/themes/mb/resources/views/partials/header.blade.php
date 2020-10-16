@@ -11,7 +11,7 @@
       <h1 class="hidden">{{ $siteName }}</h1>
     </a>
 
-    <a href="#menu-toggle" class="js-menu-toggle show-small-only">
+    <a href="#menu-toggle" class="js-menu-toggle hide-medium-up">
       <svg class="open" xmlns="http://www.w3.org/2000/svg" width="30" height="21" viewBox="0 0 30 21">
         <g fill="none" fill-rule="evenodd"><g stroke="currentColor" stroke-width="2"><g><path d="M0 .5L30 .5M0 10.5L30 10.5M0 20.5L30 20.5" transform="translate(-280 -15) translate(280 15)"/></g></g></g>
       </svg>

@@ -30,13 +30,8 @@ function mobileMenu() {
   // Menu
   $('.js-menu-toggle').on('click', (e) => {
     e.preventDefault();
-    if($(e.currentTarget).hasClass('active')) {
-      $(e.currentTarget).removeClass('active');
-      $('body').removeClass('menu-open');
-    } else {
-      $(e.currentTarget).addClass('active');
-      $('body').addClass('menu-open');
-    }
+    $(e.currentTarget).toggleClass('active');
+    $('body').toggleClass('menu-open');
   });
 }
 
@@ -85,8 +80,7 @@ function contentAnimation(container) {
   return gsap
     .timeline()
     .from($header, {
-      duration: 0.25,
-      translateY: -82,
+      duration: 0.50,
       opacity: 0,
     }
   )
@@ -290,17 +284,12 @@ barba.init({
       // sync: true,
       beforeLeave(data) {
         data.current.container.remove()
-        if($body.hasClass('menu-open')) {
-          console.log('removed');
-          $body.removeClass('menu-open');
-          $('.js-menu-toggle').removeClass('active');
-        }
       },
       leave() {
+        $header.find('.js-menu-toggle.active').removeClass('active');
         pageTransitionIn()
       },
       beforeEnter() {
-        mobileMenu();
         $body.attr('class', $('#body-classes').attr('class'));
       },
       enter(data) {
