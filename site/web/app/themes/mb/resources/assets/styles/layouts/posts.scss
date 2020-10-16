@@ -9,14 +9,23 @@ section.blog {
   .scrollable {
     header,
     .scroll {
-      transform: translateX(50%);
+      @include medium-up {
+        transform: translateX(50%);
+      }
     }
 
     .scroll {
-      grid-gap: 76px;
-      grid-template-columns: 300px;
-      grid-auto-columns: 300px;
-      grid-template-rows: minmax(300px, 1fr);
+      grid-gap: 38px;
+      grid-template-columns: 200px;
+      grid-auto-columns: 200px;
+      grid-template-rows: minmax(200px, 1fr);
+
+      @include medium-up {
+        grid-gap: 76px;
+        grid-template-columns: 300px;
+        grid-auto-columns: 300px;
+        grid-template-rows: minmax(300px, 1fr);
+      }
     }
   }
 
@@ -51,6 +60,24 @@ section.blog {
 section.entry-content {
   hr {
     margin: 120px -40px;
+  }
+}
+
+nav.pagination {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+
+  a {
+    margin: 0 3px;
+  }
+
+  .prev {
+    margin-right: 30px;
+  }
+
+  .next {
+    margin-left: 30px;
   }
 }
 

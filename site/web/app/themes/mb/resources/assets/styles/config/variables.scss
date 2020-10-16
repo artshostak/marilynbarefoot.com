@@ -204,7 +204,9 @@ h4,
 }
 
 h5,
-.h5 {
+.h5,
+h6,
+.h6 {
   font-family: $font-family-base;
   font-size: 20px;
   line-height: 1.2;
@@ -324,9 +326,9 @@ small,
   }
 
   &.six-col {
-    @include small-up {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    display: grid;
+    grid-gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
 
     @include medium-up {
       grid-template-columns: repeat(4, 1fr);

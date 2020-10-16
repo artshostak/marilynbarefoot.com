@@ -5,6 +5,6 @@
     target="{{$link['target']}}"
     <?php if($class): ?>class="{{$class}}"<?php endif; ?> 
   >
-    {{$link['title']}}
+    <?= $link['title']; ?>
   </a>
 @endif

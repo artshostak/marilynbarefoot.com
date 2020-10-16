@@ -21,17 +21,6 @@ body {
   padding: 0;
 }
 
-.loading-screen {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 90;
-  transform: scaleY(0) skewX(0);
-  transform-origin: top left;
-}
-
 .loading-container {
   position: fixed;
   top: 0;
@@ -41,6 +30,18 @@ body {
   overflow: hidden;
   z-index: 10;
   pointer-events: none;
+
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 90;
+    transform: scaleY(0) skewX(0);
+    transform-origin: top left;
+    transition: background 250ms ease-in-out;
+  }
 }
 
 /* Helpers */
@@ -221,7 +222,11 @@ section {
   }
 
   & + section {
-    margin-top: 120px;
+    margin-top: 50px;
+
+    @include medium-up {
+      margin-top: 120px;
+    }
   }
 }
 
@@ -238,8 +243,10 @@ section {
 }
 
 .scrollable {
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
+  @include medium-up {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
   
   &::-webkit-scrollbar {
     display: none;
@@ -258,12 +265,16 @@ section {
     grid-auto-columns: 120px;
     grid-template-rows: minmax(120px, 1fr);
     grid-auto-flow: column;
-    // overflow-x: scroll;
     scroll-snap-type: x proximity;
     padding-top: 50px;
     padding-bottom: 50px;
     margin-bottom: 50px;
-    -webkit-overflow-scrolling: touch;
+
+    @include medium-down {
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      padding-left: 10px;
+    }
 
     @include medium-up {
       grid-gap: $gap;

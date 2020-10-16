@@ -26,6 +26,20 @@ function playAnimation() {
   });
 }
 
+function mobileMenu() {
+  // Menu
+  $('.js-menu-toggle').on('click', (e) => {
+    e.preventDefault();
+    if($(e.currentTarget).hasClass('active')) {
+      $(e.currentTarget).removeClass('active');
+      $('body').removeClass('menu-open');
+    } else {
+      $(e.currentTarget).addClass('active');
+      $('body').addClass('menu-open');
+    }
+  });
+}
+
 function scrollingHeader() {
   if(!$body.hasClass('home')) {
     $(window).on('scroll', function() {
@@ -276,11 +290,17 @@ barba.init({
       // sync: true,
       beforeLeave(data) {
         data.current.container.remove()
+        if($body.hasClass('menu-open')) {
+          console.log('removed');
+          $body.removeClass('menu-open');
+          $('.js-menu-toggle').removeClass('active');
+        }
       },
       leave() {
         pageTransitionIn()
       },
       beforeEnter() {
+        mobileMenu();
         $body.attr('class', $('#body-classes').attr('class'));
       },
       enter(data) {
@@ -290,6 +310,7 @@ barba.init({
       },
       once(data) {
         contentAnimation(data.next.container);
+        mobileMenu();
         scrollingHeader();
       },
     },

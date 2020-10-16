@@ -10,6 +10,8 @@
       @endwhile
     </section>
 
-    {!! get_the_posts_navigation() !!}
+    <nav class="pagination mb-l">
+      <?php pagination_bar(); ?>
+    </nav>
   </section>
 @endsection

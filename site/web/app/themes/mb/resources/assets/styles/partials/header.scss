@@ -3,6 +3,7 @@
  */
 
 $header: 82px;
+$headerMobile: 52px;
 
 header.top {
   position: fixed;
@@ -13,8 +14,12 @@ header.top {
   opacity: 1;
   z-index: 99;
   border-bottom: 1px solid;
-  transition: background 100ms ease-in-out;
-  max-height: $header;
+  transition: all 100ms ease-in-out;
+  max-height: $headerMobile;
+
+  @include medium-up {
+    max-height: $header;
+  }
 
   &.transparent {
     background: transparent;
@@ -46,8 +51,32 @@ header.top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 30px;
-    padding-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+
+    @include medium-up {
+      padding-top: 30px;
+      padding-bottom: 20px;
+    }
+  }
+
+  a.brand {
+    @include medium-down {
+      svg {
+        width: auto;
+        height: 20px;
+      }
+    }
+  }
+
+  .js-menu-toggle {
+    &:not(.active) > .close {
+      display: none;
+    }
+
+    &.active > .open {
+      display: none;
+    }
   }
   
   .menu-main-container {
@@ -72,14 +101,93 @@ header.top {
 }
 
 .offset-header {
-  margin-top: $header;
+  margin-top: $headerMobile;
+
+  @include medium-up {
+    margin-top: $header;
+  }
 }
 
 header.page-header {
-  padding-top: 51px;
-  padding-bottom: 60px;
+  padding-top: 55px;
+  padding-bottom: 10px;
+
+  @include medium-up {
+    padding-top: 51px;
+    padding-bottom: 60px;
+  }
 
   & > * {
     margin: 0;
+  }
+}
+
+/* Mobile Menu */
+body.menu-open {
+  height: 100vh;
+  overflow: hidden;
+
+  #mobile-menu {
+    top: 0;
+
+    li.visible {
+      opacity: 1;
+    }
+  }
+
+  header.top {
+    background: transparent;
+    color: white;
+    border-color: transparent;
+  }
+}
+
+#mobile-menu {
+  position: fixed;
+  top: -150vh;
+  left: 0;
+  right: 0;
+  z-index: 70;
+  height: 100vh;
+  transition: all 0.5s ease-in-out;
+
+  @include medium-up {
+    display: none;
+  }
+
+  .wrapper {
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
+    background: $dark-blue-grey;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    overflow: scroll;
+
+    .top {
+      margin-top: 60px;
+      margin-bottom: 60px;
+
+      ul > li {
+        & + li {
+          margin-top: 5px;
+        }
+
+        a {
+          font-size: 64px;
+          line-height: 66px;
+        }
+      }
+    }
+    
+    .bottom {
+      ul > li {
+        & + li {
+          margin-top: 5px;
+        }
+      }
+    }
   }
 }

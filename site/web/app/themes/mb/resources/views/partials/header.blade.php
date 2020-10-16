@@ -11,6 +11,15 @@
       <h1 class="hidden">{{ $siteName }}</h1>
     </a>
 
+    <a href="#menu-toggle" class="js-menu-toggle show-small-only">
+      <svg class="open" xmlns="http://www.w3.org/2000/svg" width="30" height="21" viewBox="0 0 30 21">
+        <g fill="none" fill-rule="evenodd"><g stroke="currentColor" stroke-width="2"><g><path d="M0 .5L30 .5M0 10.5L30 10.5M0 20.5L30 20.5" transform="translate(-280 -15) translate(280 15)"/></g></g></g>
+      </svg>
+      <svg class="close" xmlns="http://www.w3.org/2000/svg" width="30" height="21" viewBox="0 0 30 21">
+        <g fill="none" fill-rule="evenodd"><g stroke="currentColor" stroke-width="2"><g><path d="M0 11.5L30 11.5" transform="translate(-159 -16) translate(159 15) rotate(45 15 11.5)"/><path d="M0 11.96L30 11.96" transform="translate(-159 -16) translate(159 15) scale(-1 1) rotate(45 0 -24.253)"/></g></g></g>
+      </svg>    
+    </a>
+
     <nav class="nav-primary hide-small">
       @if (has_nav_menu('primary_navigation'))
         {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
@@ -18,3 +27,21 @@
     </nav>
   </div>
 </header>
+
+<nav id="mobile-menu">
+  <div class="wrapper">
+    <div class="top">
+      @if (has_nav_menu('primary_navigation'))
+        {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav unstyled', 'echo' => false]) !!}
+      @endif
+    </div>
+    <div class="bottom grid two-col-all">
+      <div class="left">
+        {!! wp_nav_menu(['menu' => 'footer', 'menu_class' => 'nav unstyled', 'echo' => false]) !!}
+      </div>
+      <div class="right">
+        {!! wp_nav_menu(['menu' => 'social-media', 'menu_class' => 'nav unstyled', 'echo' => false]) !!}
+      </div>
+    </div>
+  </div>
+</nav>

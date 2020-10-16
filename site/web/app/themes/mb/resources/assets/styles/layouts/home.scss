@@ -58,6 +58,11 @@ section.clients {
 }
 
 section.about {
+  @include medium-down {
+    padding-top: 60px;
+    border-top: 1px solid;
+  }
+
   .grid {
     align-items: center;
 
@@ -84,6 +89,11 @@ section.services {
   }
 
   .scroll {
+    grid-gap: 50px;
+    grid-template-columns: 200px;
+    grid-auto-columns: 200px;
+    grid-template-rows: minmax(200px, 1fr);
+
     @include medium-up {
       grid-gap: 100px;
       grid-template-columns: 350px;

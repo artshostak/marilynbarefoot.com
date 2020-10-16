@@ -3,38 +3,10 @@
     <div class="grid">
       <div class="left post-image">
         <?= get_the_post_thumbnail($id, 'full'); ?>
-
-        <div class="wrapper toggle">
-          @if(get_field('group', $id))
-            @while(have_rows('group', $id)) @php(the_row())
-              <div class="group mt-m">
-                @if(get_sub_field('heading'))
-                  <h5><?= the_sub_field('heading'); ?></h5>
-                @endif
-                @if(get_sub_field('description'))
-                  <div class="medium">
-                    <?= the_sub_field('description'); ?>
-                  </div>
-                @endif
-              </div>
-            @endwhile
-          @endif
-          
-          @if(get_field('action', $id))
-            @while(have_rows('action', $id)) @php(the_row())
-              <div class="description medium mt-m">
-                @if(get_sub_field('description'))
-                  <?= the_sub_field('description'); ?>
-                @endif
-                @php($link = get_sub_field('link', $id))
-                @if($link)
-                  <div class="mt-s">
-                    @include('partials.link', ['class' => 'button small'])
-                  </div>
-                @endif
-              </div>
-            @endwhile
-          @endif
+        <div class="hide-small">
+          <div class="wrapper toggle">
+            @include('partials.service-details')
+          </div>
         </div>
       </div>
       <div class="right post-content">
@@ -57,6 +29,12 @@
               @endwhile
             </div>
           @endif
+          
+          <div class="show-small-only">
+            <div class="toggle">
+              @include('partials.service-details')
+            </div>
+          </div>
         </div>
       </div>
     </div>
