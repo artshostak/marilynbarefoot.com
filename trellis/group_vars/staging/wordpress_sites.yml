@@ -4,12 +4,12 @@
 wordpress_sites:
   marilynbarefoot.com:
     site_hosts:
-    - canonical: marilynbarefoot.com
-      redirects:
-      - www.marilynbarefoot.com
+    - canonical: 138.197.208.178
+      # redirects:
+      # - www.marilynbarefoot.com
     local_path: ../site
     branch: master
-    repo: git@github.com:example/example.com.git
+    repo: git@github.com:artshostak/marilynbarefoot.com.git
     repo_subtree_path: site
     multisite:
       enabled: false
