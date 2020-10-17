@@ -1,5 +1,9 @@
 /* Blog Posts */
 body.blog {
+  .loading-screen {
+    background: $darkish-purple;
+  }
+
   header.page-header {
     color: $darkish-purple;
   }
@@ -83,6 +87,10 @@ nav.pagination {
 
 /* Single Article */
 body.single-post {
+  .loading-screen {
+    background: $darkish-purple;
+  }
+
   header.page-header {
     color: $darkish-purple;
   }
