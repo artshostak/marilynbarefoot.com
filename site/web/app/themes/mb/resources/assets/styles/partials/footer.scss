@@ -93,6 +93,12 @@ footer.bottom {
         }
       }
     }
+
+    p > a {
+      text-decoration: none;
+
+      @extend .underline;
+    }
   }
 
   ul {

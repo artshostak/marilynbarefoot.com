@@ -201,6 +201,15 @@ body.clients {
   header.page-header {
     color: $blueberry;
   }
+
+  & ~ section.testimonial {
+    margin-top: 40px;
+
+    .source {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
 }
 
 section#filter-list {
@@ -212,13 +221,13 @@ section#filter-list {
       padding: 6px;
 
       &:hover {
-        border-color: #ccc;
+        border-color: $black;
       }
         
       &.active,
       &:focus,
       &:active {
-        border-color: black;
+        border-color: $black;
       }
   
       & + a {
@@ -228,6 +237,15 @@ section#filter-list {
   }
 
   ul.list {
+    margin-top: 20px;
+
+    &.grid {
+      @include medium-up {
+        grid-column-gap: 30px;
+        grid-row-gap: 40px;
+      }
+    }
+
     & > li {
       opacity: 0;
       transition: opacity 250ms ease-in-out;

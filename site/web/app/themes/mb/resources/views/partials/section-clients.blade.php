@@ -6,11 +6,11 @@
           @while(have_rows('testimonial')) @php(the_row())
             <div class="glide__slide">
               <small>{{the_sub_field('name')}}</small>
-              <div class="wrapper max-734">
+              <div class="wrapper max-734 mt-m">
                 <h4><?= the_sub_field('quote'); ?></h4>
               </div>
               <div class="wrapper max-348">
-                <small>&mdash; <?= the_sub_field('source'); ?></small>
+                <small class="source">&mdash; <?= the_sub_field('source'); ?></small>
               </div>
             </div>
           @endwhile
@@ -36,6 +36,8 @@
   $args = array(
     'posts_per_page'=> '-1',
     'post_type' => 'client',
+    'orderby' => 'name',
+    'order'   => 'ASC',
   );
   $loop = new WP_Query($args);
 ?>
