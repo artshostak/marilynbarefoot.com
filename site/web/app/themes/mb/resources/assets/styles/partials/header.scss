@@ -24,6 +24,7 @@ header.top {
   &.transparent {
     background: transparent;
     color: white;
+    border-bottom-color: transparent;
 
     .menu-main-container {
       ul > li > a {
@@ -37,6 +38,7 @@ header.top {
   &.white {
     color: black;
     background: white;
+    border-bottom-color: black;
 
     .menu-main-container {
       ul > li > a {

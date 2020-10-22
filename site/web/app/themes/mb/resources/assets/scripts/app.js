@@ -120,36 +120,16 @@ barba.init({
           $body.addClass('show-header');
         }, 2500);
 
-        // Scroller
-        const $sliderContainer = $('.scrollable');
-        const slider = document.querySelector('.scrollable > .scroll');
-        if($sliderContainer.length > 0) {
-          let isDown = false,
-          startX,
-          scrollLeft;
-
-          slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.classList.add('active');
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-          });
-          slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.classList.remove('active');
-          });
-          slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.classList.remove('active');
-          });
-          slider.addEventListener('mousemove', (e) => {
-            if(!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; //scroll-fast
-            slider.scrollLeft = scrollLeft - walk;
-          });
-        }
+        const $about = $('section.about');
+        $(window).on('scroll' , _.debounce(() => {
+          if($about.hasClass('visible')) {
+            $about.removeClass('visible');
+          }
+          $about.mostVisible({
+            percentage: true,
+            offset: 300,
+          }).addClass('visible');
+        }, 50));
       },
       afterLeave() {
         $header.removeClass('white');

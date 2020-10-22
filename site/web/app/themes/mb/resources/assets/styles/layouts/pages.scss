@@ -309,6 +309,10 @@ section#page-content {
     a {
       cursor: pointer;
 
+      small {
+        font-size: 16px;
+      }
+
       & + a {
         margin-left: 30px;
 

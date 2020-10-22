@@ -112,9 +112,20 @@ section.clients {
 }
 
 section.about {
-  @include medium-down {
-    padding-top: 60px;
-    border-top: 1px solid;
+  margin-top: 0;
+  padding-top: 60px;
+  border-top: 1px solid;
+  transition: all 500ms ease-in-out;
+
+  &.visible {
+    background: $dark-blue-grey;
+    color: $white;
+  }
+
+  @include medium-up {
+    border-top: none;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 
   .grid {
@@ -135,6 +146,8 @@ section.about {
 }
 
 section.services {
+  margin-top: 80px;
+
   header,
   .scroll {
     @include medium-up {
