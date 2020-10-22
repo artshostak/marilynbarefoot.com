@@ -5,7 +5,6 @@ import 'jquery';
 import barba from '@barba/core';
 import gsap from 'gsap';
 import _ from 'underscore';
-import mostVisible from 'most-visible';
 import Lottie from 'lottie-web';
 import List from 'list.js';
 import Glide from '@glidejs/glide'
@@ -110,26 +109,15 @@ barba.init({
             $header.removeClass('white');
           }
         });
-        playAnimation();
 
         setTimeout(function() {
           $('section.hero').addClass('active');
+          playAnimation();
         }, 1500);
 
         setTimeout(function() {
           $body.addClass('show-header');
         }, 2500);
-
-        const $about = $('section.about');
-        $(window).on('scroll' , _.debounce(() => {
-          if($about.hasClass('visible')) {
-            $about.removeClass('visible');
-          }
-          $about.mostVisible({
-            percentage: true,
-            offset: 300,
-          }).addClass('visible');
-        }, 50));
       },
       afterLeave() {
         $header.removeClass('white');
@@ -143,17 +131,6 @@ barba.init({
         $service.on('click', function(e) {
           $(e.currentTarget).toggleClass('active');
         });
-
-        $(window).on('scroll' , _.debounce(() => {
-          if($service.hasClass('visible')) {
-            $service.removeClass('visible');
-          }
-
-          $service.mostVisible({
-            percentage: true,
-            offset: 160,
-          }).addClass('visible');
-        }, 50));
 
         if(window.location.hash) {
           $('html, body').animate({
@@ -212,22 +189,15 @@ barba.init({
                 var $item = $(this);
                 setTimeout(function() {
                   $item.addClass('visible');
-                }, delay+=150);
+                }, delay+=50);
               });
-            }, 150);
+            }, 50);
           }
         }
 
-        // Most Visible Scroll
-        $(window).on('scroll' , _.debounce(() => {
-          $filter.mostVisible({
-            percentage: true,
-            offset: 160,
-          }).addClass('visible');
-        }, 50));
-
-        var instance = new mostVisible('#filter-list');
-        instance.getMostVisible(popLoad());
+        setTimeout(function() {
+          popLoad();
+        }, 1000);
 
         // Glide slider
         new Glide('.glide').mount();

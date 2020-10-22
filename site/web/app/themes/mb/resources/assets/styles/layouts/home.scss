@@ -16,19 +16,20 @@ body.home {
       opacity: 1 !important;
       top: 0 !important;
       transition: all 500ms ease-in-out;
+
+      &.transparent a.brand {
+        opacity: 0;
+      }
+
+      &.white a.brand {
+        opacity: 1;
+      }
     }
   }
 
   .prefooter {
     .button {
-      &:hover {
-        color: $azul;
-        border-color: white;
-
-        &::after {
-          background: white;
-        }
-      }
+      @extend .inverted;
     }
   }
 }
@@ -115,11 +116,15 @@ section.about {
   margin-top: 0;
   padding-top: 60px;
   border-top: 1px solid;
-  transition: all 500ms ease-in-out;
+  transition: all 250ms ease-in-out;
 
-  &.visible {
+  &:hover {
     background: $dark-blue-grey;
     color: $white;
+
+    .button {
+      @extend .inverted;
+    }
   }
 
   @include medium-up {

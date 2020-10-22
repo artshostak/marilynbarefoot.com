@@ -10,7 +10,7 @@
    border-radius: 25px;
    padding: 8px 15px 10px;
    overflow: hidden;
-   transition: color 250ms ease-in-out;
+   transition: color 150ms ease-in-out;
 
    &.wide {
      padding: 8px 22px 10px;
@@ -30,10 +30,22 @@
    }
 
    &:hover {
-     color: white;
+     border-color: $black;
+     color: $white;
 
      &::after {
         width: 100%;
+     }
+   }
+
+   &.inverted {
+     &::after {
+       background: $white;
+     }
+
+     &:hover {
+       border-color: $white;
+       color: $black;
      }
    }
  }

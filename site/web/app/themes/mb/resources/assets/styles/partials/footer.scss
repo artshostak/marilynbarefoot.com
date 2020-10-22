@@ -54,7 +54,8 @@ footer.bottom {
       color: #e6ebf2;
     }
 
-    ul > li > a {
+    ul > li > a,
+    p > a {
       &::after {
         background: white;
       }
