@@ -10,6 +10,7 @@ import List from 'list.js';
 import Glide from '@glidejs/glide'
 import Player from '@vimeo/player';
 import 'scrollit';
+import lax from 'lax.js'
 
 let $body = $('body');
 
@@ -118,6 +119,16 @@ barba.init({
         setTimeout(function() {
           $body.addClass('show-header');
         }, 2500);
+
+        // Lax scrolling animations
+        window.onload = function() {
+          lax.setup()
+          const updateLax = () => {
+            lax.update(window.scrollY)
+            window.requestAnimationFrame(updateLax)
+          }
+          window.requestAnimationFrame(updateLax)
+        }
       },
       afterLeave() {
         $header.removeClass('white');

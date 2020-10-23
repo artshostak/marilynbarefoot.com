@@ -3,7 +3,8 @@ body.home {
   overflow-x: hidden;
 
   .loading-screen {
-    animation: bg 750ms 500ms ease-in-out;
+    // animation: bg 750ms 500ms ease-in-out;
+    background: $azul;
   }
 
   header.top {
@@ -71,7 +72,7 @@ section.hero {
       max-width: 210px;
 
       @include small-up {
-        max-width: 100%;
+        max-width: 650px;
       }
     }
   }

@@ -12,12 +12,14 @@
             data-name="{{$animation['title']}}"
             data-animation-path="{{$animation['url']}}"
             data-anim-loop="false"
-          /></div>
+          ></div>
         @endif
-        <div class="wrapper max-550">
+        <div class="wrapper max-550 lax"
+          data-lax-opacity="400 1, 200 1, 0 0" data-lax-anchor="self">
           @includeFirst(['partials.content-page', 'partials.content'])
         </div>
-        <div class="logo">
+        <div class="logo lax"
+          data-lax-translate-x="500 0, 200 -500px, 0 -1000" data-lax-anchor="self">
           <svg xmlns="http://www.w3.org/2000/svg" width="203" height="26" viewBox="0 0 203 26">
             <g fill="none" fill-rule="evenodd">
               <g fill="currentColor">
