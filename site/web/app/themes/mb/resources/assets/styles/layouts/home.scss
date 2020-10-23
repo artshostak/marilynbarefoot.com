@@ -3,7 +3,7 @@ body.home {
   overflow-x: hidden;
 
   .loading-screen {
-    background: $azul;
+    animation: bg 750ms 500ms ease-in-out;
   }
 
   header.top {
@@ -18,7 +18,9 @@ body.home {
       transition: all 500ms ease-in-out;
 
       &.transparent a.brand {
-        opacity: 0;
+        @include medium-up {
+          opacity: 0;
+        }
       }
 
       &.white a.brand {
@@ -41,6 +43,7 @@ section.hero {
   color: white;
 
   .container {
+    position: relative;
     height: 100%;
     display: flex;
     flex-flow: column;
@@ -48,24 +51,45 @@ section.hero {
   }
 
   #lottie {
-    margin-top: 111px;
-    width: 198px;
-    height: 282px;
-    object-fit: contain;
-
-    @include small-up {
-      width: 300px;
-      height: 400px; 
-    }
+    position: absolute;
+    top: 80px;
+    bottom: 50%;
+    width: 100%;
+    height: 50%;
 
     @include medium-up {
-      width: 450px;
-      height: 587px;
+      top: 0;
+      bottom: 115px;
+      width: 45%;
+      height: calc(100vh - 115px);
+    }
+    
+    svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      max-width: 210px;
+
+      @include small-up {
+        max-width: 100%;
+      }
     }
   }
 
   .wrapper {
-    margin: 55px 0 55px auto;
+    position: absolute;
+    bottom: 50px;
+
+    @include small-up {
+      bottom: 250px;
+    }
+
+    @include medium-up {
+      top: 50%;
+      bottom: auto;
+      right: 40px;
+      max-width: calc(50% - 100px);
+    }
 
     & > h4 {
       transition: all 500ms ease-in-out;;
@@ -75,6 +99,8 @@ section.hero {
   }
 
   .logo {
+    position: absolute;
+    bottom: 40px;
     display: none;
 
     @include small-up {
@@ -86,6 +112,7 @@ section.hero {
       transform: translateX(100%);
       opacity: 0;
       width: 539px;
+      max-width: 75%;
       height: auto;
     }
   }

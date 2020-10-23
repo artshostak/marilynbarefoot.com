@@ -38,7 +38,6 @@ body {
     bottom: 0;
     left: 0;
     z-index: 90;
-    background: #212663;
     transform: scaleY(0) skewX(0);
     transform-origin: top left;
     transition: background 250ms ease-in-out;
@@ -386,6 +385,16 @@ video {
 
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes bg {
+  from {
+    background: #212663;
+  }
+
+  to {
+    background: $azul;
   }
 }
 
