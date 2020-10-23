@@ -62,10 +62,10 @@ function pageTransitionIn() {
 // Function to add and remove the page transition screen
 function pageTransitionOut(container) {
   return gsap
-    .timeline({ delay: 1 }) // More readable to put it here
+    .timeline({ delay: 0.5 }) // More readable to put it here
     .add('start') // Use a label to sync screen and content animation
     .to(loadingScreen, {
-      duration: 1,
+      duration: .5,
       scaleY: 0,
       skewX: 0,
       transformOrigin: 'top left',
