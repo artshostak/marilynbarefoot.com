@@ -111,7 +111,10 @@ body.single-post {
   article.single-article {
     .grid {
       .left {
+        order: 2;
+
         @include medium-up {
+          order: 1;
           grid-column: 1/7;
         }
 
@@ -121,7 +124,10 @@ body.single-post {
       }
 
       .right {
+        order: 1;
+
         @include medium-up {
+          order: 2;
           grid-column: 8/12;
           text-align: right;
         }
