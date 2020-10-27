@@ -1,13 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
-
-  @if (! have_posts())
-    <x-alert type="warning">
-      {!! __('Sorry, but the page you are trying to view does not exist.', 'sage') !!}
-    </x-alert>
-
-    {!! get_search_form(false) !!}
-  @endif
+  <section id="page-404" class="single-page container pb-xl mb-xl">
+    @include('partials.page-header')
+    <h4>Sorry, but the page you are trying to view does not exist.</h4>
+  </section>
 @endsection
