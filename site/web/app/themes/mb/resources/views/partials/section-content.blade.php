@@ -34,7 +34,7 @@
       <h3>{{$field['label']}}</h3>
     </header>
     @while(have_rows('speaker_reel')) @php(the_row())
-      <div class="wrapper max-734">
+      <div class="big-video">
         @include('partials.vimeo')
         <p>{{the_sub_field('caption')}}</p>
       </div>
@@ -85,7 +85,7 @@
       @php($field = get_field_object('press'))
       <h3>{{$field['label']}}</h3>
     </header>
-    <div class="columns two-col wrapper max-734">
+    <div class="grid three-col">
       @while(have_rows('press')) @php(the_row())
         <div class="item mb-l">
           <small>{{the_sub_field('item')}}</small>
@@ -103,18 +103,18 @@
 @php($blog = get_field('blog'))
 @if($blog)
   <section class="blog" data-scroll-index="4">
-    <div class="blog scrollable">
-      <header class="container">
-        <div class="border-top flex spaced centered">
-          <div class="left">
-            @php($field = get_field_object('blog'))
-            <p>{{$field['label']}}</p>
-          </div>
-          <div class="right">
-            <a href="/blog">View All</a>
-          </div>
+    <header class="container">
+      <div class="border-top flex spaced centered">
+        <div class="left">
+          @php($field = get_field_object('blog'))
+          <p>{{$field['label']}}</p>
         </div>
-      </header>
+        <div class="right">
+          <a href="/blog">See all &rsaquo;</a>
+        </div>
+      </div>
+    </header>
+    <div class="scrollable">
       <div class="scroll">
         @foreach($blog as $b)
           @include('partials.content', ['id' => $b->ID])

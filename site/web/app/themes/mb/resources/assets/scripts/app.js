@@ -48,14 +48,22 @@ function scrollingHeader() {
 }
 
 // Loader
-const loadingScreen = document.querySelector('.loading-screen');
-const $header = $('header.top');
+const loadingContainer = document.querySelector('.loading-container'),
+      loadingScreen = document.querySelector('.loading-screen'),
+      $header = $('header.top');
 
 // Function to add and remove the page transition screen
 function pageTransitionIn() {
   return gsap
     .timeline({ delay: 0 })
-    .set(loadingScreen, { transformOrigin: 'bottom left'})
+    .set(loadingContainer, {
+      css: {
+        zIndex: 100,
+      },
+    })
+    .set(loadingScreen, {
+      transformOrigin: 'bottom left',
+    })
     // .to(loadingScreen, { duration: 0.5, scaleY: 1 })
     .to(loadingScreen, { duration: .5, scaleY: 1, transformOrigin: 'bottom left'})
 }
@@ -72,13 +80,18 @@ function pageTransitionOut(container) {
       transformOrigin: 'top left',
       ease: 'power1.out',
     }, 'start')
+    .set(loadingContainer, {
+      css: {
+        zIndex: -1,
+      },
+    })
     .call(contentAnimation, [container], 'start')
 }
 
 // Function to animate the content of each page
 function contentAnimation(container) {
-  // return gsap
-  //   .timeline()
+  return gsap
+    .timeline()
   //   .from($header, {
   //     duration: 0.5,
   //     opacity: 0,

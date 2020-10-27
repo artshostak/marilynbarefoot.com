@@ -5,7 +5,7 @@
         @php($field = get_field_object('credentials'))
         <h4>{{$field['label']}}</h4>
       </header>
-      <div class="wrapper max-550">
+      <div class="columns two-col">
         {{the_field('credentials')}}
       </div>
     </div>

@@ -5,7 +5,7 @@
     </div>
   </a>
   <div class="post-content">
-    <a href="{{ get_permalink($id) }}">
+    <a href="/services/#{{basename(get_permalink($id))}}">
       <h3 class="truncate"><?= get_the_title($id); ?></h3>
     </a>
     @if(get_the_excerpt($id))

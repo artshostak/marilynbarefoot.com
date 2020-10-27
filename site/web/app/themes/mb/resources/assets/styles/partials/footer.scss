@@ -1,7 +1,7 @@
 section.prefooter {
   .grid {
-    padding-top: 75px;
-    padding-bottom: 75px;
+    padding-top: 55px;
+    padding-bottom: 55px;
     align-items: center;
 
     @include medium-up {
@@ -48,6 +48,29 @@ footer.bottom {
 
   &.blue {
     background: $azul;
+  }
+
+  &.light-blue {
+    background: $lightblue;
+  }
+
+  &.blueberry {
+    background: $blueberry;
+  }
+
+  &.topaz {
+    background: $topaz;
+  }
+
+  &.darkish-purple {
+    background: $darkish-purple;
+  }
+
+  &.blue,
+  &.light-blue,
+  &.blueberry,
+  &.topaz,
+  &.darkish-purple {
     color: $white;
 
     .copyright {

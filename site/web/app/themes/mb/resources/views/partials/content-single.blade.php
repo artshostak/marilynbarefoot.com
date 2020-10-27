@@ -1,4 +1,8 @@
-<article @php(post_class('single-article mb-xl'))>
+<article @php(post_class('single-article pt-l mb-xl'))>
+  <a href="/blog" class="back">
+    &lsaquo; Back to Blog
+    </a>
+
   <header class="page-header mb-m">
     <h2 class="entry-title">
       {!! $title !!}

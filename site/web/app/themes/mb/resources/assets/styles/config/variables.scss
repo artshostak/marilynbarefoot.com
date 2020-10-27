@@ -127,6 +127,10 @@ body {
   font-weight: normal;
   font-size: 20px;
   line-height: 1.2;
+
+  @include medium-up {
+    font-size: 21px;
+  }
 }
 
 a {
@@ -213,6 +217,10 @@ h6,
   font-weight: normal;
   color: inherit;
   margin: 0 0 2px;
+
+  @include medium-up {
+    font-size: 21px;
+  }
 }
 
 .medium {

@@ -36,6 +36,18 @@ body.about {
 
   & + section {
     margin-top: 40px;
+
+    .columns {
+      @include medium-up {
+        column-gap: 34px;
+      }
+
+      p {
+        margin: 0;
+
+        @extend .py;
+      }
+    }
   }
 }
 
@@ -52,9 +64,16 @@ body.services {
   }
 
   & ~ section.services {
+    margin-top: 40px;
+
+    & ~ section.prefooter {
+      margin-top: 0;
+    }
+
     article.service-full {
       position: relative;
       transition: all 250ms ease-in-out;
+      border-top: 1px solid;
 
       &:not(.active):hover {
         cursor: pointer;
@@ -68,7 +87,6 @@ body.services {
         padding-top: 53px;
         padding-bottom: 67px;
         position: relative;
-        border-top: 1px solid;
 
         &::after {
           content: "";
@@ -144,30 +162,23 @@ body.services {
         }
       }
 
-      &:first-of-type .grid {
+      &:first-of-type {
         border-top: 0;
-      }
-
-      &:last-of-type .grid {
-        border-bottom: 1px solid;
       }
 
       &:hover {
         background: $dark-blue-grey;
         color: $white;
+        border-color: transparent;
 
         .grid {
-          border-color: transparent;
-
           &::after {
             filter: invert(1);
           }
         }
 
         & + article {
-          .grid {
-            border-top-color: transparent;
-          }
+          border-top-color: transparent;
         }
       }
 
@@ -205,11 +216,19 @@ body.clients {
   }
 
   & ~ section.testimonial {
-    margin-top: 40px;
+    .quote {
+      margin-top: 20px;
+      width: 75%;
+      max-width: 960px;
+    }
 
     .source {
-      font-size: 16px;
-      line-height: 19px;
+      max-width: 420px;
+
+      small {
+        font-size: 16px;
+        line-height: 19px;
+      }
     }
   }
 }
@@ -291,9 +310,9 @@ section#page-content {
     padding-bottom: 50px;
   }
 
-  & ~ section {
+  & ~ section:not(.prefooter) {
     margin-top: 0;
-    padding-top: 100px;
+    padding-top: 50px;
   }
 
   & ~ header.sticky {
@@ -403,7 +422,7 @@ section#page-content {
 
     a {
       &:hover {
-        text-decoration: underline;
+        border-bottom: 2px solid;
       }
     }
   }

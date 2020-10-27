@@ -5,12 +5,12 @@
         <ul class="glide__slides">
           @while(have_rows('testimonial')) @php(the_row())
             <div class="glide__slide">
-              <small>{{the_sub_field('name')}}</small>
-              <div class="wrapper max-734 mt-m">
+              {{the_sub_field('name')}}
+              <div class="quote">
                 <h4><?= the_sub_field('quote'); ?></h4>
               </div>
-              <div class="wrapper max-348">
-                <small class="source">&mdash; <?= the_sub_field('source'); ?></small>
+              <div class="source">
+                <small>&mdash; <?= the_sub_field('source'); ?></small>
               </div>
             </div>
           @endwhile

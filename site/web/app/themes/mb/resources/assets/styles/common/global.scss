@@ -28,7 +28,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  z-index: 10;
+  z-index: 1;
   pointer-events: none;
 
   .loading-screen {
@@ -37,7 +37,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 90;
+    z-index: 200;
     transform: scaleY(0) skewX(0);
     transform-origin: top left;
     transition: background 250ms ease-in-out;
@@ -47,6 +47,7 @@ body {
 .barba-container {
   opacity: 0;
   transition: opacity 500ms 500ms ease-in-out;
+  z-index: 2;
 
   &.visible {
     opacity: 1;
@@ -160,7 +161,7 @@ span.screen-reader-text {
 
 /* Layout */
 .container {
-  max-width: 1800px;
+  max-width: 1600px;
   padding-left: $spacer;
   padding-right: $spacer;
   margin-right: auto;
@@ -186,8 +187,8 @@ span.screen-reader-text {
   }
 
   @include xl-up {
-    padding-left: 15vw !important;
-    padding-right: 15vw !important;
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
   }
 }
 
@@ -239,7 +240,7 @@ section {
     margin-top: 50px;
 
     @include medium-up {
-      margin-top: 120px;
+      margin-top: 60px;
     }
   }
 }
@@ -300,6 +301,11 @@ section {
     &::-webkit-scrollbar {
       display: none;
     }
+
+    &::before {
+      content: "";
+      width: $gap;
+    }
   
     &::after {
       content: "";
@@ -314,6 +320,13 @@ video {
   height: 100%;
   max-width: none;
   object-fit: cover;
+}
+
+.big-video {
+  @include medium-up {
+    width: 75%;
+    max-width: 1200px;
+  }
 }
 
 .vimeo {
@@ -360,9 +373,8 @@ video {
 
 .truncate {
   width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  hyphens: auto;
+  line-height: 1;
 }
 
 /* Animation */
@@ -387,36 +399,3 @@ video {
     transform: translateY(0);
   }
 }
-
-@keyframes bg {
-  from {
-    background: #212663;
-  }
-
-  to {
-    background: $azul;
-  }
-}
-
-/*
-@keyframes outline {
-  0% {
-    background-size: 0 1px, 1px 0, 0 1px, 1px 0;
-  }
-
-  25% {
-    background-size: 100% 1px, 1px 0, 0 1px, 1px 0;
-  }
-
-  50% {
-    background-size: 100% 1px, 1px 100%, 0 1px, 1px 0;
-  }
-
-  75% {
-    background-size: 100% 1px, 1px 100%, 100% 1px, 1px 0;
-  }
-
-  100% {
-    background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
-  }
-} */

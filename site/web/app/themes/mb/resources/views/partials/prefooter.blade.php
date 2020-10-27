@@ -9,7 +9,11 @@
               {{the_sub_field('description')}}
             </div>
             @php($link = get_sub_field('link'))
-            @include('partials.link', ['class' => 'button wide'])
+            @if(get_sub_field('colour') === '#ffffff')
+              @include('partials.link', ['class' => 'button wide inverted'])
+            @else
+              @include('partials.link', ['class' => 'button wide'])
+            @endif
           </div>
           <div class="right">
             @php($image = get_sub_field('image'))

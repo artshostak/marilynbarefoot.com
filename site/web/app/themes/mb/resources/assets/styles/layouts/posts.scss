@@ -11,13 +11,6 @@ body.blog {
 
 section.blog {
   .scrollable {
-    header,
-    .scroll {
-      @include medium-up {
-        transform: translateX(50%);
-      }
-    }
-
     .scroll {
       grid-gap: 38px;
       grid-template-columns: 200px;
@@ -34,10 +27,10 @@ section.blog {
   }
 
   &.grid {
-    grid-gap: 100px;
+    grid-gap: 20px;
 
-    & > article {
-      margin-bottom: 50px;
+    @include medium-up {
+      grid-gap: 100px;
     }
   }
 
@@ -49,7 +42,20 @@ section.blog {
       .post-featured-image {
         border-radius: 30px;
         line-height: 0;
+        padding-bottom: 60%;
         overflow: hidden;
+        background: whitesmoke;
+
+        img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
 
         @extend .hover;
 
@@ -93,6 +99,13 @@ body.single-post {
 
   header.page-header {
     color: $darkish-purple;
+  }
+
+  a.back {
+    font-size: 16px;
+    line-height: 1.19;
+
+    @extend .underline;
   }
 
   article.single-article {
