@@ -299,6 +299,14 @@ section {
       padding-left: $gap;
     }
   
+    @include large-up {
+      padding-left: 40px;
+    }
+  
+    @include xl-up {
+      padding-left: 10vw;
+    }
+  
     &::-webkit-scrollbar {
       display: none;
     }
