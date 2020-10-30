@@ -9,8 +9,6 @@ section.prefooter {
     }
 
     .left {
-      grid-column: span 7;
-
       @include medium-down {
         order: 2;
 
@@ -18,21 +16,33 @@ section.prefooter {
           margin-top: 40px;
         }
       }
+
+      @include medium-up {
+        grid-column: span 7;
+      }
     }
 
     .right {
-      grid-column: span 4;
-
       @include medium-down {
         order: 1;
         margin-bottom: 50px;
       }
 
+      @include medium-up {
+        grid-column: span 4;
+      }
+
       img {
-        max-width: 335px;
-        max-height: 476px;
-        margin-left: auto;
-        margin-right: auto;
+        display: block;
+        max-width: 200px;
+        max-height: 300px;
+
+        @include medium-up {
+          max-width: 335px;
+          max-height: 476px;
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
     }
   }
@@ -48,6 +58,7 @@ footer.bottom {
 
   &.blue {
     background: $azul;
+    border-top: 1px solid;
   }
 
   &.light-blue {
@@ -127,6 +138,8 @@ footer.bottom {
 
   ul {
     @extend .unstyled;
+
+    padding-bottom: 5px;
 
     li + li {
       margin-top: 5px;

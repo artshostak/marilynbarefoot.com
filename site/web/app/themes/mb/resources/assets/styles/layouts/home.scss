@@ -62,7 +62,7 @@ section.hero {
     @include medium-up {
       top: 0;
       bottom: 115px;
-      width: 45%;
+      width: 39%;
       height: calc(100vh - 115px);
     }
     
@@ -78,7 +78,8 @@ section.hero {
       }
 
       @include medium-up {
-        margin-top: 100px;
+        margin-top: 0;
+        max-height: calc(100vh - 200px);
       }
     }
   }

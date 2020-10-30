@@ -216,10 +216,15 @@ body.clients {
   }
 
   & ~ section.testimonial {
+    margin-top: 0;
+
     .quote {
       margin-top: 20px;
-      width: 75%;
-      max-width: 960px;
+
+      @include medium-up {
+        width: 75%;
+        max-width: 960px;
+      }
     }
 
     .source {

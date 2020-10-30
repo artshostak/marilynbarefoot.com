@@ -4,7 +4,7 @@
   @while(have_posts()) @php(the_post())
     {{-- Hero --}}
     <section class="hero fullpage">
-      <div class="container py-l">
+      <div class="container">
         <div class="overlays">
           @php($animation = get_field('animation'))
           @if($animation)
@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="logo lax"
-            data-lax-translate-x="500 0, 200 -500px, 0 -1000" data-lax-anchor="self">
+            data-lax-translate-x="300 0, 150 -500px, 0 -1000" data-lax-anchor="self">
             <svg xmlns="http://www.w3.org/2000/svg" width="203" height="26" viewBox="0 0 203 26">
               <g fill="none" fill-rule="evenodd">
                 <g fill="currentColor">

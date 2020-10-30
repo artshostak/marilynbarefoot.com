@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b22fbe96cfa0594e67bcdc86e983595",
+    "content-hash": "a744a96280cd117203b2ce22fadc1360",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -773,27 +773,6 @@
             "time": "2019-02-15T14:41:03+00:00"
         },
         {
-            "name": "wpackagist-plugin/quick-featured-images",
-            "version": "dev-trunk",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/quick-featured-images/",
-                "reference": "trunk"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/quick-featured-images.zip?timestamp=1597529584",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/quick-featured-images/",
-            "time": "2020-08-15T22:13:04+00:00"
-        },
-        {
             "name": "wpackagist-plugin/redirection",
             "version": "dev-trunk",
             "source": {
@@ -1225,7 +1204,6 @@
         "wpackagist-plugin/autodescription": 20,
         "wpackagist-plugin/caldera-forms": 20,
         "wpackagist-plugin/custom-post-type-ui": 20,
-        "wpackagist-plugin/quick-featured-images": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,

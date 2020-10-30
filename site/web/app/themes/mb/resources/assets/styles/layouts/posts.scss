@@ -115,7 +115,7 @@ body.single-post {
 
         @include medium-up {
           order: 1;
-          grid-column: 1/7;
+          grid-column: 1/8;
         }
 
         section.entry-content {
@@ -128,13 +128,13 @@ body.single-post {
 
         @include medium-up {
           order: 2;
-          grid-column: 8/12;
+          grid-column: 8/13;
           text-align: right;
         }
 
         img {
-          max-width: 350px;
-          heigth: auto;
+          // max-width: 350px;
+          height: auto;
           border-radius: 150px;
           line-height: 0;
           overflow: hidden;

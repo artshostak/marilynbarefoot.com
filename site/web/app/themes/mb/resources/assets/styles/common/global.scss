@@ -283,12 +283,12 @@ section {
     scroll-snap-type: x proximity;
     padding-top: 50px;
     padding-bottom: 50px;
+    padding-left: 10px;
     margin-bottom: 50px;
 
     @include medium-down {
       overflow-x: scroll;
       -webkit-overflow-scrolling: touch;
-      padding-left: 10px;
     }
 
     @include medium-up {
@@ -296,15 +296,11 @@ section {
       grid-template-columns: 200px;
       grid-auto-columns: 200px;
       grid-template-rows: minmax(200px, 1fr);
+      padding-left: $gap;
     }
   
     &::-webkit-scrollbar {
       display: none;
-    }
-
-    &::before {
-      content: "";
-      width: $gap;
     }
   
     &::after {
@@ -330,8 +326,10 @@ video {
 }
 
 .vimeo {
+  border-radius: 40px;
   position: relative;
   padding-bottom: 56.29%;
+  overflow: hidden;
 
   .vimeo-wrapper {
     width: 100%;

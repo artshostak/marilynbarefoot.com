@@ -17,6 +17,10 @@ header.top {
   transition: all 100ms ease-in-out;
   max-height: $headerMobile;
 
+  @include medium-down {
+    transition: all 250ms 250ms ease-in-out;
+  }
+
   @include medium-up {
     max-height: $header;
   }
