@@ -86,7 +86,8 @@
     "wpackagist-plugin/simple-history": "dev-trunk",
     "wpackagist-plugin/autodescription": "dev-trunk",
     "wpackagist-plugin/caldera-forms": "dev-trunk",
-    "wpackagist-plugin/custom-post-type-ui": "dev-trunk"
+    "wpackagist-plugin/custom-post-type-ui": "dev-trunk",
+    "wpackagist-plugin/wp-maintenance-mode": "dev-trunk"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.5.6",

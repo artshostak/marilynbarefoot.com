@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a744a96280cd117203b2ce22fadc1360",
+    "content-hash": "9dc943e18c227211a4633967cf476fa1",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -834,6 +834,27 @@
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/simple-history/",
             "time": "2020-09-09T19:15:26+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/wp-maintenance-mode",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-maintenance-mode/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-maintenance-mode.zip?timestamp=1597103221",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-maintenance-mode/",
+            "time": "2020-08-10T23:47:01+00:00"
         }
     ],
     "packages-dev": [
@@ -1204,6 +1225,7 @@
         "wpackagist-plugin/autodescription": 20,
         "wpackagist-plugin/caldera-forms": 20,
         "wpackagist-plugin/custom-post-type-ui": 20,
+        "wpackagist-plugin/wp-maintenance-mode": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
