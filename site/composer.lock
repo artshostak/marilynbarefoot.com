@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9dc943e18c227211a4633967cf476fa1",
+    "content-hash": "4f18222cd5053697903438c7f73ea8fe",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -836,16 +836,16 @@
             "time": "2020-09-09T19:15:26+00:00"
         },
         {
-            "name": "wpackagist-plugin/wp-maintenance-mode",
+            "name": "wpackagist-plugin/wp-force-login",
             "version": "dev-trunk",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-maintenance-mode/",
+                "url": "https://plugins.svn.wordpress.org/wp-force-login/",
                 "reference": "trunk"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-maintenance-mode.zip?timestamp=1597103221",
+                "url": "https://downloads.wordpress.org/plugin/wp-force-login.zip?timestamp=1586388090",
                 "reference": null,
                 "shasum": null
             },
@@ -853,8 +853,8 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-maintenance-mode/",
-            "time": "2020-08-10T23:47:01+00:00"
+            "homepage": "https://wordpress.org/plugins/wp-force-login/",
+            "time": "2020-04-08T23:21:30+00:00"
         }
     ],
     "packages-dev": [
@@ -1225,7 +1225,7 @@
         "wpackagist-plugin/autodescription": 20,
         "wpackagist-plugin/caldera-forms": 20,
         "wpackagist-plugin/custom-post-type-ui": 20,
-        "wpackagist-plugin/wp-maintenance-mode": 20,
+        "wpackagist-plugin/wp-force-login": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
