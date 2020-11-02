@@ -161,7 +161,6 @@ span.screen-reader-text {
 
 /* Layout */
 .container {
-  max-width: 1600px;
   padding-left: $spacer;
   padding-right: $spacer;
   margin-right: auto;
@@ -304,7 +303,7 @@ section {
     }
   
     @include xl-up {
-      padding-left: 10vw;
+      padding-left: 5vw;
     }
   
     &::-webkit-scrollbar {
