@@ -17,9 +17,7 @@
           @endif
           <div class="info lax"
             data-lax-opacity="400 1, 200 1, 0 0" data-lax-anchor="self">
-            <div class="wrapper max-550">
               @includeFirst(['partials.content-page', 'partials.content'])
-            </div>
           </div>
           <div class="logo lax"
             data-lax-translate-x="300 0, 150 -500px, 0 -1000" data-lax-anchor="self">

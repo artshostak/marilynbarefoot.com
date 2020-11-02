@@ -46,6 +46,12 @@ section.hero {
     position: relative;
     height: 100%;
 
+    @include xl-up {
+      max-width: 100%;
+      padding-left: 40px !important;
+      padding-right: 40px !important;
+    }
+
     .overlays {
       position: relative;
       height: 100%;
@@ -60,7 +66,7 @@ section.hero {
     height: 50%;
 
     @include medium-up {
-      top: 0;
+      top: 30px;
       bottom: 115px;
       width: 39%;
       height: calc(100vh - 115px);
@@ -93,9 +99,10 @@ section.hero {
     }
 
     @include medium-up {
-      top: 50%;
+      top: 47%;
       bottom: auto;
       right: 0;
+      width: 45%;
     }
 
     .wrapper {
